@@ -7,158 +7,182 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-[100dvh] flex items-center overflow-hidden"
-      style={{ paddingTop: "72px" }}
+      style={{ paddingTop: "64px" }}
     >
-      {/* Background: blue left, red right */}
-      <div className="absolute inset-0 flex">
-        <div className="w-full lg:w-[58%] h-full" style={{ background: "oklch(0.28 0.13 262)" }} />
-        <div
-          className="hidden lg:block absolute right-0 top-0 bottom-0"
-          style={{
-            width: "48%",
-            background: "oklch(0.44 0.22 25)",
-            clipPath: "polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          }}
-        />
-      </div>
+      {/* Deep navy blue — matching the logo artwork */}
+      <div className="absolute inset-0" style={{ background: "oklch(0.25 0.22 265)" }} />
 
-      {/* Subtle grid overlay */}
+      {/* Red diagonal panel — right side */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            "linear-gradient(oklch(1 0 0) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+          background: "oklch(0.52 0.20 25)",
+          clipPath: "polygon(62% 0%, 100% 0%, 100% 100%, 55% 100%)",
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-20 lg:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Left: Text */}
-        <div>
-          <span
-            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-6 px-3 py-1 rounded-sm"
-            style={{
-              color: "oklch(0.44 0.22 25)",
-              background: "oklch(1 0 0 / 0.1)",
-              border: "1px solid oklch(1 0 0 / 0.15)",
-            }}
-          >
-            Established in Zambia 1965
-          </span>
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(oklch(0 0 0 / 0.3) 1px, transparent 1px), linear-gradient(90deg, oklch(0 0 0 / 0.3) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
 
+      {/* Soft glow top-left */}
+      <div
+        className="absolute top-0 left-0 w-[600px] h-[600px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at 20% 20%, oklch(0.38 0.22 265 / 0.5), transparent 70%)",
+        }}
+      />
+
+      {/* HD logo — absolutely centered in the red panel (right ~40% of viewport) */}
+      <div className="hero-image hidden lg:flex items-center justify-center absolute right-0 top-0 bottom-0 w-[40%] z-10" style={{ paddingTop: "64px" }}>
+        <div className="relative">
+          <div
+            className="absolute inset-0 rounded-2xl blur-2xl opacity-25 scale-110"
+            style={{ background: "oklch(0.52 0.20 25)" }}
+          />
+          <Image
+            src="/hd-hero-logo.png"
+            alt="Hill + Delamain"
+            width={420}
+            height={420}
+            className="relative z-10 w-72 h-72 lg:w-[28rem] lg:h-[28rem] object-contain drop-shadow-2xl"
+            priority
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-20 lg:py-28">
+        {/* Left: Text — constrained to ~55% so it doesn't overlap the image */}
+        <div className="max-w-[55%]">
+          {/* Eyebrow */}
+          <div className="hero-item hero-item-1">
+            <span
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase mb-7 px-3 py-1.5 rounded-sm"
+              style={{
+                color: "white",
+                background: "oklch(1 0 0 / 0.09)",
+                border: "1px solid oklch(1 0 0 / 0.15)",
+              }}
+            >
+              <span
+                className="inline-block w-1.5 h-1.5 rounded-full"
+                style={{ background: "oklch(0.82 0.12 25)" }}
+              />
+              Established in Zambia · 1965
+            </span>
+          </div>
+
+          {/* Headline */}
           <h1
-            className="font-display font-800 leading-[0.92] mb-6"
+            className="hero-item hero-item-2 font-display font-800 leading-[0.92] mb-7"
             style={{
               color: "white",
-              fontSize: "clamp(3rem, 7vw, 5.5rem)",
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(3.2rem, 7.5vw, 6rem)",
+              letterSpacing: "-0.03em",
               textWrap: "balance",
             }}
           >
             Your Cargo.
             <br />
-            <span style={{ color: "oklch(0.75 0.14 25)" }}>Our Commitment.</span>
+            <span style={{ color: "oklch(0.82 0.12 25)" }}>Our Commitment.</span>
           </h1>
 
+          {/* Divider */}
+          <div
+            className="hero-item hero-item-3 w-16 h-px mb-7"
+            style={{ background: "oklch(0.52 0.20 25)" }}
+          />
+
+          {/* Body */}
           <p
-            className="text-base lg:text-lg leading-relaxed mb-10 max-w-[52ch]"
-            style={{ color: "oklch(0.80 0.02 262)" }}
+            className="hero-item hero-item-4 text-base lg:text-lg leading-relaxed mb-10"
+            style={{ color: "oklch(0.78 0.02 262)", maxWidth: "50ch" }}
           >
-            Zambia&apos;s leading clearing and freight forwarding company since 1965.
-            Local expertise across 15 offices, backed by global partnerships
-            with DHL, CEVA and DP World.
+            Zambia&apos;s leading clearing and freight forwarding company.
+            Local expertise across 15 offices — backed by partnerships with
+            leading global partners.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          {/* CTAs */}
+          <div className="hero-item hero-item-5 flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 font-semibold text-white rounded transition-all duration-200 text-sm"
-              style={{ background: "oklch(0.44 0.22 25)" }}
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 font-semibold text-white rounded transition-all duration-200 text-sm"
+              style={{ background: "oklch(0.52 0.20 25)" }}
               onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.background =
-                  "oklch(0.56 0.20 25)")
+                ((e.currentTarget as HTMLElement).style.background = "oklch(0.63 0.18 25)")
               }
               onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.background =
-                  "oklch(0.44 0.22 25)")
+                ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
               }
             >
               Get a Quote
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded transition-all duration-200 text-sm"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 font-semibold rounded transition-all duration-200 text-sm"
               style={{
                 color: "white",
-                border: "1.5px solid oklch(1 0 0 / 0.35)",
+                border: "1.5px solid oklch(1 0 0 / 0.28)",
                 background: "transparent",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.08)";
-                (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 0.55)";
+                (e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.07)";
+                (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 0.45)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.background = "transparent";
-                (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 0.35)";
+                (e.currentTarget as HTMLElement).style.borderColor = "oklch(1 0 0 / 0.28)";
               }}
             >
               Our Services
             </Link>
           </div>
+
+          {/* Trust indicators */}
+          <div
+            className="hero-item hero-item-6 flex flex-wrap items-center gap-5 mt-12 pt-10"
+            style={{ borderTop: "1px solid oklch(1 0 0 / 0.1)" }}
+          >
+            {[
+              { value: "60+", label: "Years" },
+              { value: "15", label: "Zambia Offices" },
+              { value: "150+", label: "Expert Staff" },
+              { value: "IATA", label: "Registered" },
+            ].map((s) => (
+              <div key={s.value} className="flex items-baseline gap-1.5">
+                <span
+                  className="font-display font-800 text-2xl leading-none"
+                  style={{ color: "white" }}
+                >
+                  {s.value}
+                </span>
+                <span className="text-xs font-medium" style={{ color: "oklch(0.60 0.02 262)" }}>
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Right: Logo image + decorative elements */}
-        <div className="hidden lg:flex items-center justify-center relative">
-          {/* Large decorative logo */}
-          <div className="relative w-72 h-72">
-            <div
-              className="absolute inset-0 rounded-2xl"
-              style={{ background: "oklch(1 0 0 / 0.06)" }}
-            />
-            <Image
-              src="/hd-hero-logo.png"
-              alt="Hill & Delamain"
-              width={400}
-              height={400}
-              className="relative z-10 w-full h-full object-contain p-6"
-              priority
-            />
-          </div>
-
-          {/* Floating stat card */}
-          <div
-            className="absolute -bottom-4 -left-8 rounded-xl px-6 py-4 shadow-2xl"
-            style={{ background: "white" }}
-          >
-            <p
-              className="font-display font-800 text-3xl leading-none"
-              style={{ color: "oklch(0.44 0.22 25)" }}
-            >
-              60+
-            </p>
-            <p className="text-xs font-medium mt-0.5" style={{ color: "oklch(0.50 0.008 262)" }}>
-              Years Experience
-            </p>
-          </div>
-
-          {/* Floating stat card 2 */}
-          <div
-            className="absolute -top-4 -right-4 rounded-xl px-6 py-4 shadow-2xl"
-            style={{ background: "oklch(0.28 0.13 262)" }}
-          >
-            <p className="font-display font-800 text-3xl leading-none" style={{ color: "white" }}>
-              15
-            </p>
-            <p className="text-xs font-medium mt-0.5" style={{ color: "oklch(0.75 0.04 262)" }}>
-              Zambia Offices
-            </p>
-          </div>
-        </div>
       </div>
 
+      {/* Bottom edge fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, oklch(0.20 0.18 265 / 0.5))",
+        }}
+      />
     </section>
   );
 }

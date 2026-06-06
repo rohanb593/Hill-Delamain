@@ -98,7 +98,7 @@ export default function PageScrollContainer({ children }: { children: React.Reac
                 width:  active === i ? "10px" : "6px",
                 height: active === i ? "10px" : "6px",
                 background: active === i
-                  ? "oklch(0.44 0.22 25)"
+                  ? "oklch(0.52 0.20 25)"
                   : "oklch(0.82 0.01 262 / 0.55)",
                 boxShadow: active === i
                   ? "0 0 0 3px oklch(0.44 0.22 25 / 0.28)"

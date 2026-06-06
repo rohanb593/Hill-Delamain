@@ -23,12 +23,23 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/hd-logo-nav.png"
-            alt="Hill & Delamain"
+            alt="Hill + Delamain"
             width={120}
             height={48}
             className="h-10 w-auto object-contain"
             priority
           />
+          <span
+            className="font-sans font-semibold hidden sm:block"
+            style={{
+              color: "oklch(0.13 0.01 262)",
+              fontSize: "1.25rem",
+              letterSpacing: "0.01em",
+              lineHeight: 1,
+            }}
+          >
+            Hill + Delamain
+          </span>
         </Link>
 
         {/* Desktop links */}
@@ -42,10 +53,10 @@ export default function Navbar() {
                 className="text-sm font-medium transition-colors duration-200"
                 style={{
                   color: isActive
-                    ? "oklch(0.44 0.22 25)"
+                    ? "oklch(0.52 0.20 25)"
                     : "oklch(0.50 0.008 262)",
                   borderBottom: isActive
-                    ? "1.5px solid oklch(0.44 0.22 25)"
+                    ? "1.5px solid oklch(0.52 0.20 25)"
                     : "1.5px solid transparent",
                   paddingBottom: "2px",
                 }}
@@ -57,12 +68,12 @@ export default function Navbar() {
           <Link
             href="/contact"
             className="px-5 py-2.5 text-sm font-semibold text-white rounded transition-colors duration-200"
-            style={{ background: "oklch(0.44 0.22 25)" }}
+            style={{ background: "oklch(0.52 0.20 25)" }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = "oklch(0.35 0.20 25)")
+              ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
+              ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
             }
           >
             Get a Quote
@@ -124,7 +135,7 @@ export default function Navbar() {
             href="/contact"
             onClick={() => setMenuOpen(false)}
             className="mt-2 px-5 py-2.5 text-sm font-semibold text-white rounded text-center"
-            style={{ background: "oklch(0.44 0.22 25)" }}
+            style={{ background: "oklch(0.52 0.20 25)" }}
           >
             Get a Quote
           </Link>

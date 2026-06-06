@@ -1,24 +1,6 @@
 "use client";
 
-function HDLogoSmall() {
-  return (
-    <svg
-      viewBox="0 0 88 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-9 w-auto"
-      aria-label="Hill & Delamain"
-    >
-      <rect x="0" y="6" width="41" height="50" fill="oklch(0.44 0.22 25)" />
-      <rect x="44" y="0" width="44" height="56" fill="oklch(0.50 0.12 262)" />
-      <rect x="7"  y="15" width="5" height="32" fill="white" />
-      <rect x="29" y="15" width="5" height="32" fill="white" />
-      <rect x="7"  y="29" width="27" height="5"  fill="white" />
-      <rect x="52" y="9"  width="5" height="38"  fill="white" />
-      <path d="M57 9 Q82 9 82 28 Q82 47 57 47" stroke="white" strokeWidth="5" fill="none" strokeLinecap="square"/>
-    </svg>
-  );
-}
+import Image from "next/image";
 
 const footerLinks = {
   Services: [
@@ -42,12 +24,18 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <HDLogoSmall />
+              <Image
+                src="/hd-logo-nav.png"
+                alt="Hill + Delamain"
+                width={80}
+                height={32}
+                className="h-8 w-auto object-contain"
+              />
               <span
-                className="font-display font-700 text-xl tracking-tight"
-                style={{ color: "white" }}
+                className="font-sans font-semibold"
+                style={{ color: "white", fontSize: "1.1rem", letterSpacing: "0.01em" }}
               >
-                Hill <span style={{ color: "oklch(0.75 0.14 25)" }}>&amp;</span> Delamain
+                Hill + Delamain
               </span>
             </div>
             <p
@@ -73,7 +61,7 @@ export default function Footer() {
                 style={{ background: "oklch(1 0 0 / 0.07)" }}
                 aria-label="LinkedIn"
                 onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
+                  ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
                 }
                 onMouseLeave={(e) =>
                   ((e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.07)")
@@ -90,7 +78,7 @@ export default function Footer() {
                 style={{ background: "oklch(1 0 0 / 0.07)" }}
                 aria-label="X / Twitter"
                 onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
+                  ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
                 }
                 onMouseLeave={(e) =>
                   ((e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.07)")
@@ -123,7 +111,7 @@ export default function Footer() {
                         className="text-sm transition-colors duration-200"
                         style={{ color: "oklch(0.65 0.01 262)" }}
                         onMouseEnter={(e) =>
-                          ((e.target as HTMLElement).style.color = "oklch(0.75 0.14 25)")
+                          ((e.target as HTMLElement).style.color = "oklch(0.82 0.12 25)")
                         }
                         onMouseLeave={(e) =>
                           ((e.target as HTMLElement).style.color = "oklch(0.65 0.01 262)")
@@ -147,7 +135,7 @@ export default function Footer() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs" style={{ color: "oklch(0.45 0.005 262)" }}>
-            &copy; {new Date().getFullYear()} Hill &amp; Delamain. All rights reserved. Reg. No. 4861 | TPIN: 1001630844
+            &copy; {new Date().getFullYear()} Hill + Delamain. All rights reserved. Reg. No. 4861 | TPIN: 1001630844
           </p>
           <div className="flex items-center gap-5">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((l) => (
@@ -157,7 +145,7 @@ export default function Footer() {
                 className="text-xs transition-colors duration-200"
                 style={{ color: "oklch(0.45 0.005 262)" }}
                 onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.color = "oklch(0.75 0.14 25)")
+                  ((e.target as HTMLElement).style.color = "oklch(0.82 0.12 25)")
                 }
                 onMouseLeave={(e) =>
                   ((e.target as HTMLElement).style.color = "oklch(0.45 0.005 262)")

@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colours */
-  --color-hd-red:        oklch(0.44 0.22 25);
-  --color-hd-red-dark:   oklch(0.35 0.20 25);
-  --color-hd-red-light:  oklch(0.56 0.20 25);
-  --color-hd-blue:       oklch(0.28 0.13 262);
+  --color-hd-red:        oklch(0.52 0.20 25);
+  --color-hd-red-dark:   oklch(0.44 0.22 25);
+  --color-hd-red-light:  oklch(0.63 0.18 25);
+  --color-hd-blue:       oklch(0.37 0.23 265);
+  --color-hd-navy:       oklch(0.28 0.18 265);
   --color-hd-blue-mid:   oklch(0.38 0.11 258);
   --color-hd-blue-light: oklch(0.92 0.03 258);
   --color-hd-surface:    oklch(0.97 0.005 258);
@@ -13,23 +13,16 @@
   --color-hd-muted:      oklch(0.50 0.008 262);
   --color-hd-white:      oklch(1.000 0.000 0);
 
-  /* Typography */
-  --font-display: var(--font-barlow), 'Barlow Condensed', sans-serif;
-  --font-sans:    var(--font-inter), 'Inter', sans-serif;
+  --font-display: 'Times New Roman', Times, serif;
+  --font-sans:    'Times New Roman', Times, serif;
 
-  /* Z-index scale */
   --z-dropdown: 100;
   --z-sticky:   200;
   --z-modal:    300;
   --z-toast:    400;
 }
 
-/* Base */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -46,53 +39,73 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scroll reveal base state */
+/* ─── Scroll Reveal ──────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  transform: translateY(40px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-32px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  transform: translateX(-40px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.reveal-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(32px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  transform: translateX(40px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ─── Hero Entrance Animations ───────────────────────── */
+@keyframes hd-rise {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hd-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes hd-line {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
-.reveal-right.visible {
-  opacity: 1;
-  transform: translateX(0);
+.hero-item {
+  opacity: 0;
+  animation: hd-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-item-1 { animation-delay: 0.05s; }
+.hero-item-2 { animation-delay: 0.18s; }
+.hero-item-3 { animation-delay: 0.30s; }
+.hero-item-4 { animation-delay: 0.44s; }
+.hero-item-5 { animation-delay: 0.58s; }
+.hero-item-6 { animation-delay: 0.72s; }
+
+.hero-image {
+  opacity: 0;
+  animation: hd-fade 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
 }
 
-/* Stagger delays */
+/* ─── Transition delays ──────────────────────────────── */
 .delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
 
+/* ─── Reduced Motion ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal-left,
-  .reveal-right {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1; transform: none; transition: none;
   }
+  .hero-item, .hero-image { opacity: 1; animation: none; }
 }

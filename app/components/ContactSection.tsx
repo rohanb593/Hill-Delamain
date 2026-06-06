@@ -28,13 +28,13 @@ export default function ContactSection() {
     <section
       id="contact"
       className="min-h-[100dvh] flex items-center py-20 lg:py-24 relative overflow-hidden"
-      style={{ background: "oklch(0.28 0.13 262)" }}
+      style={{ background: "oklch(0.37 0.23 265)" }}
     >
       {/* Background decoration */}
       <div
         className="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none"
         style={{
-          background: "radial-gradient(circle, oklch(0.44 0.22 25), transparent 70%)",
+          background: "radial-gradient(circle, oklch(0.52 0.20 25), transparent 70%)",
         }}
       />
 
@@ -44,7 +44,7 @@ export default function ContactSection() {
           <div>
             <span
               className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-4 reveal"
-              style={{ color: "oklch(0.75 0.14 25)" }}
+              style={{ color: "oklch(0.82 0.12 25)" }}
             >
               Get in Touch
             </span>
@@ -59,7 +59,7 @@ export default function ContactSection() {
             >
               Ready to Ship?
               <br />
-              <span style={{ color: "oklch(0.75 0.14 25)" }}>Let&apos;s Talk.</span>
+              <span style={{ color: "oklch(0.82 0.12 25)" }}>Let&apos;s Talk.</span>
             </h2>
             <p
               className="text-base lg:text-lg leading-relaxed mb-10 reveal"
@@ -107,7 +107,7 @@ export default function ContactSection() {
                 <div key={i} className="flex items-start gap-4">
                   <div
                     className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{ background: "oklch(1 0 0 / 0.08)", color: "oklch(0.75 0.14 25)" }}
+                    style={{ background: "oklch(1 0 0 / 0.08)", color: "oklch(0.82 0.12 25)" }}
                   >
                     {c.icon}
                   </div>
@@ -133,7 +133,7 @@ export default function ContactSection() {
               <div className="text-center py-10">
                 <div
                   className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-5"
-                  style={{ background: "oklch(0.44 0.22 25)" }}
+                  style={{ background: "oklch(0.52 0.20 25)" }}
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" aria-hidden="true">
                     <path d="M5 12l5 5L19 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -207,12 +207,12 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     className="w-full py-3 rounded-lg font-semibold text-sm text-white transition-colors duration-200"
-                    style={{ background: "oklch(0.44 0.22 25)" }}
+                    style={{ background: "oklch(0.52 0.20 25)" }}
                     onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLElement).style.background = "oklch(0.35 0.20 25)")
+                      ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
                     }
                     onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
+                      ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
                     }
                   >
                     Send Enquiry
