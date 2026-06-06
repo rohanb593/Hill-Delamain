@@ -95,12 +95,12 @@ export default function GlobalNetwork() {
           </div>
 
           {/* Map + TOC row */}
-          <div className="reveal flex gap-4 items-stretch" style={{ height: "520px" }}>
+          <div className="reveal flex flex-col lg:flex-row gap-4 lg:items-stretch lg:h-[520px]">
 
             {/* Interactive map */}
             <div
-              className="flex-1 rounded-2xl overflow-hidden shadow-xl"
-              style={{ border: "1px solid oklch(0.90 0.01 262)", minWidth: 0 }}
+              className="rounded-2xl overflow-hidden shadow-xl"
+              style={{ border: "1px solid oklch(0.90 0.01 262)", minWidth: 0, height: "340px", flex: "1 1 340px" }}
             >
               <ZambiaMap
                 onReady={(fn) => { flyToRef.current = fn; }}
@@ -108,8 +108,9 @@ export default function GlobalNetwork() {
               />
             </div>
 
-            {/* Table of contents — animates between open (236px) and collapsed (36px) */}
+            {/* Table of contents — animates between open (236px) and collapsed (36px) — desktop only */}
             <div
+              className="hidden lg:block"
               style={{
                 width: tocOpen ? "236px" : "36px",
                 flexShrink: 0,
@@ -253,6 +254,60 @@ export default function GlobalNetwork() {
 
           </div>
 
+          {/* Mobile TOC — accordion below map, hidden on desktop */}
+          <div
+            className="lg:hidden rounded-2xl overflow-hidden"
+            style={{ background: "white", border: "1px solid oklch(0.90 0.01 262)" }}
+          >
+            <button
+              className="flex items-center justify-between w-full px-4 py-3"
+              style={{ borderBottom: tocOpen ? "1px solid oklch(0.92 0.01 262)" : "none", background: "transparent", cursor: "pointer" }}
+              onClick={() => setTocOpen(v => !v)}
+            >
+              <span className="text-[10px] font-semibold tracking-[0.14em] uppercase" style={{ color: "oklch(0.40 0.01 262)" }}>
+                Locations
+              </span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                style={{ color: "oklch(0.52 0.20 25)", transition: "transform 0.2s ease", transform: tocOpen ? "rotate(0deg)" : "rotate(-90deg)" }}>
+                <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {tocOpen && (
+              <div className="px-2 py-2 grid grid-cols-2 gap-x-2" style={{ maxHeight: "280px", overflowY: "auto" }}>
+                <div>
+                  <p className="text-[9px] font-semibold tracking-[0.14em] uppercase px-2 mb-1.5 mt-0.5" style={{ color: "oklch(0.60 0.005 262)" }}>
+                    Offices
+                  </p>
+                  {offices.map((o) => (
+                    <button key={o.name} className="w-full text-left rounded-lg px-2 py-1.5 mb-0.5"
+                      style={{ background: "transparent", cursor: "pointer" }}
+                      onClick={() => handleLocation(o.lat, o.lng, o.name, o.type, "office")}>
+                      <span className="flex items-start gap-1.5">
+                        <span className="inline-block w-2 h-2 rounded-full mt-[3px] flex-shrink-0" style={{ background: "#C83C3C" }} />
+                        <span className="block text-xs font-medium leading-snug" style={{ color: "oklch(0.18 0.01 262)" }}>{o.name}</span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+                <div>
+                  <p className="text-[9px] font-semibold tracking-[0.14em] uppercase px-2 mb-1.5 mt-0.5" style={{ color: "oklch(0.60 0.005 262)" }}>
+                    Border Crossings
+                  </p>
+                  {borders.map((b) => (
+                    <button key={b.name} className="w-full text-left rounded-lg px-2 py-1.5 mb-0.5"
+                      style={{ background: "transparent", cursor: "pointer" }}
+                      onClick={() => handleLocation(b.lat, b.lng, b.name, `Border post · ${b.country}`, "border")}>
+                      <span className="flex items-start gap-1.5">
+                        <span className="inline-block w-2 h-2 mt-[3px] flex-shrink-0" style={{ background: "#1E3DB4", transform: "rotate(45deg)" }} />
+                        <span className="block text-xs font-medium leading-snug" style={{ color: "oklch(0.18 0.01 262)" }}>{b.name}</span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Map legend */}
           <div className="flex flex-wrap items-center gap-6 mt-4 mb-0 reveal">
             <div className="flex items-center gap-2">
@@ -284,7 +339,7 @@ export default function GlobalNetwork() {
       <section className="py-14 reveal">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div
-            className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden"
+            className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl overflow-hidden"
             style={{ border: "1px solid oklch(0.90 0.01 262)" }}
           >
             {[
@@ -298,7 +353,8 @@ export default function GlobalNetwork() {
                 className="px-6 py-8 flex flex-col"
                 style={{
                   background: "white",
-                  borderRight: i < 3 ? "1px solid oklch(0.90 0.01 262)" : "none",
+                  borderRight: i % 2 === 0 ? "1px solid oklch(0.90 0.01 262)" : "none",
+                  borderBottom: i < 2 ? "1px solid oklch(0.90 0.01 262)" : "none",
                 }}
               >
                 <span
@@ -380,7 +436,7 @@ export default function GlobalNetwork() {
           </div>
 
           {/* Interactive world network map */}
-          <div className="reveal" style={{ marginTop: "-11rem" }}>
+          <div className="reveal lg:-mt-44">
             <WorldNetworkMap />
           </div>
         </div>
