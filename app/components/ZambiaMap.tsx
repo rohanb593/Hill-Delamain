@@ -34,9 +34,10 @@ export type FlyToFn = (lat: number, lng: number, name: string, detail: string, k
 
 interface ZambiaMapProps {
   onReady?: (flyTo: FlyToFn) => void;
+  onMapReady?: (invalidateSize: () => void) => void;
 }
 
-export default function ZambiaMap({ onReady }: ZambiaMapProps) {
+export default function ZambiaMap({ onReady, onMapReady }: ZambiaMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const [popup, setPopup] = useState<PopupInfo | null>(null);
 
@@ -132,6 +133,10 @@ export default function ZambiaMap({ onReady }: ZambiaMapProps) {
 
       map.on("click", () => setPopup(null));
       map.on("movestart", () => setPopup(null));
+
+      if (onMapReady) {
+        onMapReady(() => map.invalidateSize());
+      }
 
       if (onReady) {
         onReady((lat, lng, name, detail, kind) => {

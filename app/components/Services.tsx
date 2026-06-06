@@ -28,7 +28,7 @@ const services = [
     icon: ShieldCheck,
     title: "Cargo Insurance",
     description:
-      "Comprehensive cargo insurance arranged through African Grey Insurance, covering your goods at every stage of transit. We safeguard your goods and your peace of mind.",
+      "Comprehensive cargo insurance arranged through African Grey Insurance, covering your goods at every stage of transit.",
     accent: "oklch(0.37 0.23 265)",
   },
   {
@@ -49,83 +49,86 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="min-h-[100dvh] flex items-center py-20 lg:py-24" style={{ background: "oklch(0.97 0.005 258)" }}>
+    <section className="min-h-[100dvh] py-20 lg:py-24" style={{ background: "oklch(0.97 0.005 258)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+
         {/* Header */}
-        <div className="max-w-2xl mb-16 reveal">
-          <span
-            className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-4"
-            style={{ color: "oklch(0.52 0.20 25)" }}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 reveal">
+          <div>
+            <span
+              className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-5"
+              style={{ color: "oklch(0.52 0.20 25)" }}
+            >
+              What We Do
+            </span>
+            <h2
+              className="font-display font-800 leading-tight"
+              style={{
+                color: "oklch(0.13 0.01 262)",
+                fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                letterSpacing: "-0.025em",
+                textWrap: "balance",
+              }}
+            >
+              All Aspects of{" "}
+              <span style={{ color: "oklch(0.52 0.20 25)" }}>Freight Forwarding</span>
+            </h2>
+          </div>
+          <p
+            className="text-base lg:text-lg leading-relaxed"
+            style={{ color: "oklch(0.50 0.008 262)", maxWidth: "42ch" }}
           >
-            What We Do
-          </span>
-          <h2
-            className="font-display font-800 leading-tight mb-4"
-            style={{
-              color: "oklch(0.13 0.01 262)",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              letterSpacing: "-0.02em",
-              textWrap: "balance",
-            }}
-          >
-            All Aspects of Freight Forwarding
-          </h2>
-          <p className="text-base lg:text-lg leading-relaxed" style={{ color: "oklch(0.50 0.008 262)" }}>
             One company handling every dimension of your supply chain across Zambia
             and beyond. IATA registered, ZRA compliant, and trusted by leading
             mining and industrial companies for over 60 years.
           </p>
         </div>
 
+        {/* Identity bar */}
+        <div className="flex h-1.5 rounded-full overflow-hidden mb-14 reveal">
+          <div className="flex-1" style={{ background: "oklch(0.52 0.20 25)" }} />
+          <div className="flex-1" style={{ background: "oklch(0.37 0.23 265)" }} />
+        </div>
+
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <article
               key={i}
-              className="reveal group relative rounded-xl p-7 border transition-all duration-300 cursor-default"
+              className="reveal rounded-xl overflow-hidden cursor-default transition-transform duration-200"
               style={{
                 transitionDelay: `${(i % 3) * 80}ms`,
-                borderColor: "oklch(0.92 0.008 262)",
-                borderWidth: "2px",
                 background: "white",
+                border: "1px solid oklch(0.90 0.01 262)",
+                borderTop: `4px solid ${s.accent}`,
               }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget;
-                el.style.borderColor = s.accent;
-                el.style.boxShadow = `0 8px 32px ${s.accent}22`;
-                el.style.transform = "translateY(-3px)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget;
-                el.style.borderColor = "oklch(0.92 0.008 262)";
-                el.style.boxShadow = "none";
-                el.style.transform = "translateY(0)";
-              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
             >
-              {/* Icon */}
-              <div
-                className="inline-flex items-center justify-center w-12 h-12 rounded-lg mb-5 transition-colors duration-300"
-                style={{ background: `${s.accent}15`, color: s.accent }}
-              >
-                <s.icon size={26} strokeWidth={1.5} />
+              <div className="p-7">
+                <div
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-lg mb-5"
+                  style={{ background: `${s.accent}15`, color: s.accent }}
+                >
+                  <s.icon size={24} strokeWidth={1.5} />
+                </div>
+                <h3
+                  className="font-display font-700 text-xl mb-3 leading-tight"
+                  style={{ color: "oklch(0.13 0.01 262)" }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "oklch(0.50 0.008 262)" }}
+                >
+                  {s.description}
+                </p>
               </div>
-
-              <h3
-                className="font-display font-700 text-xl mb-3 leading-tight"
-                style={{ color: "oklch(0.13 0.01 262)" }}
-              >
-                {s.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: "oklch(0.50 0.008 262)", maxWidth: "38ch" }}
-              >
-                {s.description}
-              </p>
-
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

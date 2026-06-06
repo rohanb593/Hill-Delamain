@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import type { FlyToFn } from "./ZambiaMap";
 
@@ -8,10 +8,10 @@ const ZambiaMap = dynamic(() => import("./ZambiaMap"), { ssr: false });
 const WorldNetworkMap = dynamic(() => import("./WorldNetworkMap"), { ssr: false });
 
 const partners = [
-  { name: "Global Partner", role: "Air & ocean freight" },
-  { name: "Global Partner", role: "Contract logistics" },
-  { name: "Global Partner", role: "Port & terminal ops" },
-  { name: "Global Partner", role: "LCL consolidation" },
+  { role: "Air & Ocean Freight" },
+  { role: "Contract Logistics" },
+  { role: "Port & Terminal Ops" },
+  { role: "LCL Consolidation" },
 ];
 
 const offices = [
@@ -36,7 +36,15 @@ const borders = [
 
 export default function GlobalNetwork() {
   const flyToRef = useRef<FlyToFn | null>(null);
+  const invalidateSizeRef = useRef<(() => void) | null>(null);
   const [tocOpen, setTocOpen] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      invalidateSizeRef.current?.();
+    }, 320);
+    return () => clearTimeout(timer);
+  }, [tocOpen]);
 
   function handleLocation(lat: number, lng: number, name: string, detail: string, kind: "office" | "border") {
     flyToRef.current?.(lat, lng, name, detail, kind);
@@ -52,7 +60,7 @@ export default function GlobalNetwork() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 reveal">
             <div>
               <span
-                className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-4"
+                className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-5"
                 style={{ color: "oklch(0.52 0.20 25)" }}
               >
                 Our Zambian Network
@@ -72,12 +80,18 @@ export default function GlobalNetwork() {
               </h2>
             </div>
             <p
-              className="text-sm lg:text-base leading-relaxed"
-              style={{ color: "oklch(0.50 0.008 262)", maxWidth: "38ch" }}
+              className="text-base lg:text-lg leading-relaxed"
+              style={{ color: "oklch(0.50 0.008 262)", maxWidth: "42ch" }}
             >
               Headquartered in Lusaka with offices at every major inland depot,
               airport cargo terminal, and border crossing in Zambia.
             </p>
+          </div>
+
+          {/* Identity bar */}
+          <div className="flex h-1.5 rounded-full overflow-hidden mb-8 reveal">
+            <div className="flex-1" style={{ background: "oklch(0.52 0.20 25)" }} />
+            <div className="flex-1" style={{ background: "oklch(0.37 0.23 265)" }} />
           </div>
 
           {/* Map + TOC row */}
@@ -88,23 +102,41 @@ export default function GlobalNetwork() {
               className="flex-1 rounded-2xl overflow-hidden shadow-xl"
               style={{ border: "1px solid oklch(0.90 0.01 262)", minWidth: 0 }}
             >
-              <ZambiaMap onReady={(fn) => { flyToRef.current = fn; }} />
+              <ZambiaMap
+                onReady={(fn) => { flyToRef.current = fn; }}
+                onMapReady={(fn) => { invalidateSizeRef.current = fn; }}
+              />
             </div>
 
-            {/* Table of contents — full panel toggles open/closed */}
-            {tocOpen ? (
+            {/* Table of contents — animates between open (236px) and collapsed (36px) */}
+            <div
+              style={{
+                width: tocOpen ? "236px" : "36px",
+                flexShrink: 0,
+                background: "white",
+                border: "1px solid oklch(0.90 0.01 262)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                borderRadius: "1rem",
+                overflow: "hidden",
+                position: "relative",
+                transition: "width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+            >
+              {/* Full panel — fades in when open */}
               <div
-                className="flex flex-col rounded-2xl"
                 style={{
                   width: "236px",
-                  flexShrink: 0,
-                  background: "white",
-                  border: "1px solid oklch(0.90 0.01 262)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
-                  overflow: "hidden",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  opacity: tocOpen ? 1 : 0,
+                  transition: tocOpen
+                    ? "opacity 0.18s ease 0.12s"
+                    : "opacity 0.1s ease",
+                  pointerEvents: tocOpen ? "auto" : "none",
                 }}
               >
-                {/* TOC header with close button */}
+                {/* Header */}
                 <div
                   className="flex items-center justify-between px-4 py-3"
                   style={{ borderBottom: "1px solid oklch(0.92 0.01 262)", flexShrink: 0 }}
@@ -126,9 +158,8 @@ export default function GlobalNetwork() {
                   </button>
                 </div>
 
-                {/* TOC body — always visible when panel is open */}
+                {/* Scrollable body */}
                 <div className="flex-1 overflow-y-auto px-2 py-2">
-
                   <p
                     className="text-[9px] font-semibold tracking-[0.14em] uppercase px-2 mb-1.5 mt-0.5"
                     style={{ color: "oklch(0.60 0.005 262)" }}
@@ -145,17 +176,10 @@ export default function GlobalNetwork() {
                       onClick={() => handleLocation(o.lat, o.lng, o.name, o.type, "office")}
                     >
                       <span className="flex items-start gap-2">
-                        <span
-                          className="inline-block w-2 h-2 rounded-full mt-[3px] flex-shrink-0"
-                          style={{ background: "#C83C3C" }}
-                        />
+                        <span className="inline-block w-2 h-2 rounded-full mt-[3px] flex-shrink-0" style={{ background: "#C83C3C" }} />
                         <span>
-                          <span className="block text-xs font-medium leading-snug" style={{ color: "oklch(0.18 0.01 262)" }}>
-                            {o.name}
-                          </span>
-                          <span className="block text-[10px] leading-snug mt-0.5" style={{ color: "oklch(0.55 0.005 262)" }}>
-                            {o.type}
-                          </span>
+                          <span className="block text-xs font-medium leading-snug" style={{ color: "oklch(0.18 0.01 262)" }}>{o.name}</span>
+                          <span className="block text-[10px] leading-snug mt-0.5" style={{ color: "oklch(0.55 0.005 262)" }}>{o.type}</span>
                         </span>
                       </span>
                     </button>
@@ -177,58 +201,55 @@ export default function GlobalNetwork() {
                       onClick={() => handleLocation(b.lat, b.lng, b.name, `Border post · ${b.country}`, "border")}
                     >
                       <span className="flex items-start gap-2">
-                        <span
-                          className="inline-block w-2 h-2 mt-[3px] flex-shrink-0"
-                          style={{ background: "#1E3DB4", transform: "rotate(45deg)" }}
-                        />
+                        <span className="inline-block w-2 h-2 mt-[3px] flex-shrink-0" style={{ background: "#1E3DB4", transform: "rotate(45deg)" }} />
                         <span>
-                          <span className="block text-xs font-medium leading-snug" style={{ color: "oklch(0.18 0.01 262)" }}>
-                            {b.name}
-                          </span>
-                          <span className="block text-[10px] leading-snug mt-0.5" style={{ color: "oklch(0.55 0.005 262)" }}>
-                            {b.country}
-                          </span>
+                          <span className="block text-xs font-medium leading-snug" style={{ color: "oklch(0.18 0.01 262)" }}>{b.name}</span>
+                          <span className="block text-[10px] leading-snug mt-0.5" style={{ color: "oklch(0.55 0.005 262)" }}>{b.country}</span>
                         </span>
                       </span>
                     </button>
                   ))}
-
                 </div>
               </div>
-            ) : (
-              /* Collapsed state — thin tab to reopen */
+
+              {/* Collapsed tab — fades in when closed */}
               <button
                 onClick={() => setTocOpen(true)}
                 title="Show locations"
-                className="flex flex-col items-center justify-center rounded-2xl gap-2"
                 style={{
-                  width: "36px",
-                  flexShrink: 0,
-                  background: "white",
-                  border: "1px solid oklch(0.90 0.01 262)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                  position: "absolute",
+                  inset: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                  background: "transparent",
                   cursor: "pointer",
+                  opacity: tocOpen ? 0 : 1,
+                  transition: tocOpen
+                    ? "opacity 0.08s ease"
+                    : "opacity 0.18s ease 0.14s",
+                  pointerEvents: tocOpen ? "none" : "auto",
                 }}
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ color: "oklch(0.52 0.20 25)" }}>
                   <path d="M4 2L8 6L4 10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span
-                  style={{
-                    fontSize: "9px",
-                    fontWeight: 600,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "oklch(0.50 0.008 262)",
-                    writingMode: "vertical-rl",
-                    textOrientation: "mixed",
-                    transform: "rotate(180deg)",
-                  }}
-                >
+                <span style={{
+                  fontSize: "9px",
+                  fontWeight: 600,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "oklch(0.50 0.008 262)",
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  transform: "rotate(180deg)",
+                }}>
                   Locations
                 </span>
               </button>
-            )}
+            </div>
 
           </div>
 
@@ -351,10 +372,9 @@ export default function GlobalNetwork() {
                   border: "1px solid oklch(0.90 0.01 262)",
                 }}
               >
-                <p className="font-semibold text-sm leading-snug mb-1" style={{ color: "oklch(0.13 0.01 262)" }}>
-                  {p.name}
+                <p className="font-semibold text-sm leading-snug" style={{ color: "oklch(0.13 0.01 262)" }}>
+                  {p.role}
                 </p>
-                <p className="text-xs" style={{ color: "oklch(0.50 0.008 262)" }}>{p.role}</p>
               </div>
             ))}
           </div>
