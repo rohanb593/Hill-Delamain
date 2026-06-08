@@ -58,8 +58,8 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-20 lg:py-28">
-        {/* Left: Text — constrained to ~55% so it doesn't overlap the image */}
-        <div className="max-w-[55%]">
+        {/* Left: Text — constrained to ~55% on desktop so it doesn't overlap the image */}
+        <div className="w-full lg:max-w-[55%]">
           {/* Eyebrow */}
           <div className="hero-item hero-item-1">
             <span

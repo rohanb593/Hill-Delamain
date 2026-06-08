@@ -10,7 +10,6 @@ const links = [
   { href: "/services", label: "Services" },
   { href: "/network",  label: "Global Network" },
   { href: "/team",     label: "Our Team" },
-  { href: "/contact",  label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -76,7 +75,7 @@ export default function Navbar() {
               ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
             }
           >
-            Get a Quote
+            Get in Contact
           </Link>
         </div>
 
@@ -137,7 +136,7 @@ export default function Navbar() {
             className="mt-2 px-5 py-2.5 text-sm font-semibold text-white rounded text-center"
             style={{ background: "oklch(0.52 0.20 25)" }}
           >
-            Get a Quote
+            Get in Contact
           </Link>
         </div>
       )}

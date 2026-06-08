@@ -24,10 +24,10 @@ const pillars = [
 
 const certifications = [
   { label: "IATA Registered", detail: "67-4 7390" },
-  { label: "ZRA ASYCUDA", detail: "53 Profiles" },
-  { label: "Transit Bond", detail: "ZMW 150M" },
   { label: "ZCFAA Member", detail: "" },
+  { label: "ZRA ASYCUDA", detail: "53 Profiles" },
   { label: "TAZ Member", detail: "" },
+  { label: "Transit Bond", detail: "ZMW 150M" },
   { label: "ZCILT Member", detail: "" },
 ];
 
@@ -137,14 +137,14 @@ export default function Capabilities() {
             {certifications.map((c, i) => (
               <div
                 key={i}
-                className="rounded-xl px-5 py-5"
+                className="rounded-xl px-5 py-5 flex flex-col items-center justify-center text-center"
                 style={{
                   background: "white",
                   border: `2px solid ${i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)"}`,
                 }}
               >
                 <p
-                  className="text-sm font-semibold leading-tight mb-1"
+                  className="text-lg font-semibold leading-tight mb-1"
                   style={{ color: i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)" }}
                 >
                   {c.label}

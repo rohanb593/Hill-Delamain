@@ -100,7 +100,7 @@ export default function GlobalNetwork() {
             {/* Interactive map */}
             <div
               className="rounded-2xl overflow-hidden shadow-xl"
-              style={{ border: "1px solid oklch(0.90 0.01 262)", minWidth: 0, height: "340px", flex: "1 1 340px" }}
+              style={{ border: "1px solid oklch(0.90 0.01 262)", minWidth: 0, flex: "1 1 0", minHeight: "340px" }}
             >
               <ZambiaMap
                 onReady={(fn) => { flyToRef.current = fn; }}
@@ -441,20 +441,6 @@ export default function GlobalNetwork() {
           </div>
         </div>
 
-        {/* Bottom attribution bar */}
-        <div
-          className="relative"
-          style={{ background: "oklch(0.93 0.008 258)", borderTop: "1px solid oklch(0.88 0.01 262)" }}
-        >
-          <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-xs font-medium" style={{ color: "oklch(0.45 0.008 262)" }}>
-              IATA Registered · ZRA Compliant · 53 ASYCUDA Profiles · ZMW 150M Transit Bond
-            </p>
-            <p className="text-xs" style={{ color: "oklch(0.55 0.005 262)" }}>
-              Member: ZCFAA · TAZ · ZCILT
-            </p>
-          </div>
-        </div>
       </section>
 
     </div>

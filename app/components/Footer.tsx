@@ -17,10 +17,10 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer style={{ background: "oklch(0.13 0.01 262)" }}>
+    <footer style={{ background: "oklch(0.17 0.01 262)" }}>
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
@@ -40,14 +40,14 @@ export default function Footer() {
             </div>
             <p
               className="text-sm leading-relaxed mb-3"
-              style={{ color: "oklch(0.60 0.01 262)", maxWidth: "36ch" }}
+              style={{ color: "oklch(0.75 0.01 262)", maxWidth: "36ch" }}
             >
               Zambia&apos;s leading clearing and freight forwarding company.
               Established 1965. Majority Zambian owned.
             </p>
             <p
               className="text-xs leading-relaxed mb-6"
-              style={{ color: "oklch(0.48 0.008 262)", maxWidth: "36ch" }}
+              style={{ color: "oklch(0.68 0.008 262)", maxWidth: "36ch" }}
             >
               7216 Kachidza Road, Lusaka, Zambia<br />
               Tel: +260-211-286480<br />
@@ -61,31 +61,14 @@ export default function Footer() {
                 style={{ background: "oklch(1 0 0 / 0.07)" }}
                 aria-label="LinkedIn"
                 onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
+                  ((e.currentTarget as HTMLElement).style.background = "#0A66C2")
                 }
                 onMouseLeave={(e) =>
                   ((e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.07)")
                 }
               >
-                <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" style={{ color: "white" }}>
-                  <path d="M4.5 6.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM3 8h3v9H3V8zm4.5 0H11v1.2c.5-.9 1.7-1.5 3-1.5 2.3 0 4 1.5 4 4.5V17h-3v-4.5c0-1-.7-1.8-1.7-1.8s-1.8.8-1.8 1.8V17H7.5V8z"/>
-                </svg>
-              </a>
-              {/* Twitter/X */}
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
-                style={{ background: "oklch(1 0 0 / 0.07)" }}
-                aria-label="X / Twitter"
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.07)")
-                }
-              >
-                <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" style={{ color: "white" }}>
-                  <path d="M16.5 3h-2.7L10 7.8 6.2 3H3l5.8 7.5L3.2 17H6l4.1-5.1 4 5.1h3.1l-5.9-7.6L16.5 3z"/>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" style={{ color: "white" }}>
+                  <path d="M6.94 5a2 2 0 1 1-4-.002A2 2 0 0 1 6.94 5zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/>
                 </svg>
               </a>
             </div>
@@ -96,7 +79,7 @@ export default function Footer() {
             <div key={heading}>
               <h3
                 className="font-semibold text-xs tracking-[0.15em] uppercase mb-4"
-                style={{ color: "oklch(0.50 0.008 262)" }}
+                style={{ color: "oklch(0.62 0.008 262)" }}
               >
                 {heading}
               </h3>
@@ -104,17 +87,17 @@ export default function Footer() {
                 {links.map((l) => (
                   <li key={l}>
                     {heading === "Affiliations" ? (
-                      <span className="text-sm" style={{ color: "oklch(0.65 0.01 262)" }}>{l}</span>
+                      <span className="text-sm" style={{ color: "oklch(0.80 0.01 262)" }}>{l}</span>
                     ) : (
                       <a
                         href="#"
                         className="text-sm transition-colors duration-200"
-                        style={{ color: "oklch(0.65 0.01 262)" }}
+                        style={{ color: "oklch(0.80 0.01 262)" }}
                         onMouseEnter={(e) =>
                           ((e.target as HTMLElement).style.color = "oklch(0.82 0.12 25)")
                         }
                         onMouseLeave={(e) =>
-                          ((e.target as HTMLElement).style.color = "oklch(0.65 0.01 262)")
+                          ((e.target as HTMLElement).style.color = "oklch(0.80 0.01 262)")
                         }
                       >
                         {l}
@@ -131,10 +114,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div
         className="border-t"
-        style={{ borderColor: "oklch(1 0 0 / 0.07)" }}
+        style={{ borderColor: "oklch(1 0 0 / 0.12)" }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs" style={{ color: "oklch(0.45 0.005 262)" }}>
+          <p className="text-xs" style={{ color: "oklch(0.62 0.005 262)" }}>
             &copy; {new Date().getFullYear()} Hill + Delamain. All rights reserved. Reg. No. 4861 | TPIN: 1001630844
           </p>
           <div className="flex items-center gap-5">
@@ -143,12 +126,12 @@ export default function Footer() {
                 key={l}
                 href="#"
                 className="text-xs transition-colors duration-200"
-                style={{ color: "oklch(0.45 0.005 262)" }}
+                style={{ color: "oklch(0.62 0.005 262)" }}
                 onMouseEnter={(e) =>
                   ((e.target as HTMLElement).style.color = "oklch(0.82 0.12 25)")
                 }
                 onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.color = "oklch(0.45 0.005 262)")
+                  ((e.target as HTMLElement).style.color = "oklch(0.62 0.005 262)")
                 }
               >
                 {l}
