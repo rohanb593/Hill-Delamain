@@ -43,7 +43,7 @@ export default function ContactSection() {
           {/* Left: Info */}
           <div>
             <span
-              className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-4 reveal"
+              className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-4 reveal"
               style={{ color: "oklch(0.82 0.12 25)" }}
             >
               Get in Touch
@@ -112,10 +112,10 @@ export default function ContactSection() {
                     {c.icon}
                   </div>
                   <div>
-                    <p className="text-xs font-medium mb-0.5" style={{ color: "oklch(0.65 0.04 262)" }}>
+                    <p className="text-sm font-medium mb-0.5" style={{ color: "oklch(0.65 0.04 262)" }}>
                       {c.label}
                     </p>
-                    <p className="text-sm font-medium" style={{ color: "oklch(0.92 0.02 262)" }}>
+                    <p className="text-base font-medium" style={{ color: "oklch(0.92 0.02 262)" }}>
                       {c.value}
                     </p>
                   </div>
@@ -167,14 +167,14 @@ export default function ContactSection() {
                     <Field label="Phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+1 555 000 0000" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
+                    <label className="block text-sm font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
                       Service Required
                     </label>
                     <select
                       name="service"
                       value={form.service}
                       onChange={handleChange}
-                      className="w-full rounded-lg px-4 py-2.5 text-sm outline-none transition-colors"
+                      className="w-full rounded-lg px-4 py-2.5 text-base outline-none transition-colors"
                       style={{
                         border: "1.5px solid oklch(0.88 0.008 262)",
                         color: form.service ? "oklch(0.13 0.01 262)" : "oklch(0.60 0.005 262)",
@@ -191,7 +191,7 @@ export default function ContactSection() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
+                    <label className="block text-sm font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
                       Message
                     </label>
                     <textarea
@@ -206,7 +206,7 @@ export default function ContactSection() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-lg font-semibold text-sm text-white transition-colors duration-200"
+                    className="w-full py-3 rounded-lg font-semibold text-base text-white transition-colors duration-200"
                     style={{ background: "oklch(0.52 0.20 25)" }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
@@ -246,7 +246,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
+      <label className="block text-sm font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
         {label}
       </label>
       <input
@@ -256,7 +256,7 @@ function Field({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-lg px-4 py-2.5 text-sm outline-none transition-colors"
+        className="w-full rounded-lg px-4 py-2.5 text-base outline-none transition-colors"
         style={{
           border: "1.5px solid oklch(0.88 0.008 262)",
           color: "oklch(0.13 0.01 262)",

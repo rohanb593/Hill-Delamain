@@ -53,25 +53,6 @@ export default function Footer() {
               Tel: +260-211-286480<br />
               logistics@hdcargo.co.zm
             </p>
-            <div className="flex items-center gap-3">
-              {/* LinkedIn */}
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
-                style={{ background: "oklch(1 0 0 / 0.07)" }}
-                aria-label="LinkedIn"
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "#0A66C2")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "oklch(1 0 0 / 0.07)")
-                }
-              >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" style={{ color: "white" }}>
-                  <path d="M6.94 5a2 2 0 1 1-4-.002A2 2 0 0 1 6.94 5zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/>
-                </svg>
-              </a>
-            </div>
           </div>
 
           {/* Link columns */}

@@ -80,7 +80,7 @@ function StatCard({ stat, index, active }: { stat: typeof stats[0]; index: numbe
       </p>
 
       {/* Note */}
-      <p className="text-xs leading-relaxed" style={{ color: "oklch(0.75 0.12 25 / 0.7)" }}>
+      <p className="text-sm leading-relaxed" style={{ color: "oklch(0.75 0.12 25 / 0.85)" }}>
         {stat.note}
       </p>
     </div>
@@ -132,7 +132,7 @@ export default function Stats() {
             Moving Zambia Forward.
           </p>
           <p
-            className="mt-2 text-sm font-medium"
+            className="mt-2 text-base font-medium"
             style={{ color: "oklch(0.92 0.06 25)" }}
           >
             Local expertise. Global reach. Where service counts.
@@ -152,7 +152,7 @@ export default function Stats() {
           style={{ borderTop: "1px solid oklch(1 0 0 / 0.15)" }}
         >
           <p
-            className="text-xs font-semibold tracking-[0.15em] uppercase mb-5"
+            className="text-sm font-semibold tracking-[0.15em] uppercase mb-5"
             style={{ color: "oklch(0.90 0.06 25 / 0.7)" }}
           >
             Global Partners
@@ -161,8 +161,8 @@ export default function Stats() {
             {["Air & Ocean Freight", "Contract Logistics", "Port & Terminal Ops", "LCL Consolidation"].map((p, i) => (
               <span
                 key={i}
-                className="text-sm font-semibold"
-                style={{ color: "oklch(1 0 0 / 0.55)" }}
+                className="text-base font-semibold"
+                style={{ color: "oklch(1 0 0 / 0.75)" }}
               >
                 {p}
               </span>

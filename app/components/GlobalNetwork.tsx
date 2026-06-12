@@ -60,7 +60,7 @@ export default function GlobalNetwork() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 reveal">
             <div>
               <span
-                className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-5"
+                className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-5"
                 style={{ color: "oklch(0.52 0.20 25)" }}
               >
                 Our Zambian Network
@@ -315,7 +315,7 @@ export default function GlobalNetwork() {
                 className="inline-block w-3.5 h-3.5 rounded-full flex-shrink-0"
                 style={{ background: "#C83C3C", border: "2px solid white", boxShadow: "0 1px 4px rgba(0,0,0,0.25)" }}
               />
-              <span className="text-xs font-medium" style={{ color: "oklch(0.40 0.01 262)" }}>
+              <span className="text-sm font-medium" style={{ color: "oklch(0.40 0.01 262)" }}>
                 H+D Office / Air Terminal
               </span>
             </div>
@@ -324,11 +324,11 @@ export default function GlobalNetwork() {
                 className="inline-block w-3 h-3 rotate-45 flex-shrink-0"
                 style={{ background: "#1E3DB4", border: "2px solid white", boxShadow: "0 1px 4px rgba(0,0,0,0.25)" }}
               />
-              <span className="text-xs font-medium" style={{ color: "oklch(0.40 0.01 262)" }}>
+              <span className="text-sm font-medium" style={{ color: "oklch(0.40 0.01 262)" }}>
                 Border Post
               </span>
             </div>
-            <span className="text-xs" style={{ color: "oklch(0.60 0.005 262)" }}>
+            <span className="text-sm" style={{ color: "oklch(0.60 0.005 262)" }}>
               Click any marker or location name for details · Scroll to zoom
             </span>
           </div>
@@ -367,10 +367,10 @@ export default function GlobalNetwork() {
                 >
                   {s.value}
                 </span>
-                <span className="font-semibold text-sm mb-1" style={{ color: "oklch(0.13 0.01 262)" }}>
+                <span className="font-semibold text-base mb-1" style={{ color: "oklch(0.13 0.01 262)" }}>
                   {s.label}
                 </span>
-                <span className="text-xs" style={{ color: "oklch(0.58 0.005 262)" }}>
+                <span className="text-sm" style={{ color: "oklch(0.58 0.005 262)" }}>
                   {s.sub}
                 </span>
               </div>
@@ -389,7 +389,7 @@ export default function GlobalNetwork() {
           <div className="grid lg:grid-cols-2 gap-8 items-end mb-12 reveal">
             <div>
               <span
-                className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-4"
+                className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-4"
                 style={{ color: "oklch(0.52 0.20 25)" }}
               >
                 Global Reach
@@ -428,7 +428,7 @@ export default function GlobalNetwork() {
                   border: "1px solid oklch(0.90 0.01 262)",
                 }}
               >
-                <p className="font-semibold text-sm leading-snug" style={{ color: "oklch(0.13 0.01 262)" }}>
+                <p className="font-semibold text-base leading-snug" style={{ color: "oklch(0.13 0.01 262)" }}>
                   {p.role}
                 </p>
               </div>

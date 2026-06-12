@@ -56,7 +56,7 @@ export default function Services() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 reveal">
           <div>
             <span
-              className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-5"
+              className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-5"
               style={{ color: "oklch(0.52 0.20 25)" }}
             >
               What We Do
@@ -119,7 +119,7 @@ export default function Services() {
                   {s.title}
                 </h3>
                 <p
-                  className="text-sm leading-relaxed"
+                  className="text-base leading-relaxed"
                   style={{ color: "oklch(0.50 0.008 262)" }}
                 >
                   {s.description}

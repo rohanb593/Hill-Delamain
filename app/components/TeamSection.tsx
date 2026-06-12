@@ -21,7 +21,7 @@ export default function TeamSection() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 reveal">
           <div>
             <span
-              className="inline-block text-xs font-semibold tracking-[0.18em] uppercase mb-5"
+              className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-5"
               style={{ color: "oklch(0.52 0.20 25)" }}
             >
               Our People
@@ -85,7 +85,7 @@ export default function TeamSection() {
           {/* Values */}
           <div className="order-1 lg:order-2 reveal">
             <p
-              className="text-xs font-semibold tracking-[0.15em] uppercase mb-6"
+              className="text-sm font-semibold tracking-[0.15em] uppercase mb-6"
               style={{ color: "oklch(0.50 0.008 262)" }}
             >
               Our Values
@@ -101,7 +101,7 @@ export default function TeamSection() {
                   }}
                 >
                   <p
-                    className="text-sm font-semibold leading-snug"
+                    className="text-base font-semibold leading-snug"
                     style={{ color: i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)" }}
                   >
                     {v}

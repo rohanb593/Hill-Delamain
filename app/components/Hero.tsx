@@ -63,7 +63,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="hero-item hero-item-1">
             <span
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase mb-7 px-3 py-1.5 rounded-sm"
+              className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.2em] uppercase mb-7 px-3 py-1.5 rounded-sm"
               style={{
                 color: "white",
                 background: "oklch(1 0 0 / 0.09)",
@@ -113,7 +113,7 @@ export default function Hero() {
           <div className="hero-item hero-item-5 flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 font-semibold text-white rounded transition-all duration-200 text-sm"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 font-semibold text-white rounded transition-all duration-200 text-base"
               style={{ background: "oklch(0.52 0.20 25)" }}
               onMouseEnter={(e) =>
                 ((e.currentTarget as HTMLElement).style.background = "oklch(0.63 0.18 25)")
@@ -129,7 +129,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 font-semibold rounded transition-all duration-200 text-sm"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 font-semibold rounded transition-all duration-200 text-base"
               style={{
                 color: "white",
                 border: "1.5px solid oklch(1 0 0 / 0.28)",
@@ -166,7 +166,7 @@ export default function Hero() {
                 >
                   {s.value}
                 </span>
-                <span className="text-xs font-medium" style={{ color: "oklch(0.60 0.02 262)" }}>
+                <span className="text-sm font-medium" style={{ color: "oklch(0.60 0.02 262)" }}>
                   {s.label}
                 </span>
               </div>

@@ -49,7 +49,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium transition-colors duration-200"
+                className="text-base font-medium transition-colors duration-200"
                 style={{
                   color: isActive
                     ? "oklch(0.52 0.20 25)"
