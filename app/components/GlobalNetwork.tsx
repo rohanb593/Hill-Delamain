@@ -73,7 +73,7 @@ export default function GlobalNetwork() {
                   letterSpacing: "-0.025em",
                 }}
               >
-                15 Offices.{" "}
+                14 Offices.{" "}
                 <span style={{ color: "oklch(0.37 0.23 265)" }}>8 Border Posts.</span>
                 <br />
                 One Network.
@@ -343,7 +343,7 @@ export default function GlobalNetwork() {
             style={{ border: "1px solid oklch(0.90 0.01 262)" }}
           >
             {[
-              { value: "15", label: "Offices in Zambia", sub: "Lusaka, Copperbelt & borders" },
+              { value: "14", label: "Offices in Zambia", sub: "Lusaka, Copperbelt & borders" },
               { value: "8",  label: "Border Crossings",  sub: "All major Zambian border posts" },
               { value: "60+", label: "Years in Zambia",  sub: "Established 1965" },
               { value: "4",  label: "Global Partners",   sub: "Leading logistics networks" },

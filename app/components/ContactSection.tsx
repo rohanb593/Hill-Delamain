@@ -185,7 +185,6 @@ export default function ContactSection() {
                       <option>Sea Freight</option>
                       <option>Surface Freight</option>
                       <option>Customs Broking</option>
-                      <option>Cargo Insurance</option>
                       <option>Warehousing &amp; Logistics</option>
                       <option>General Enquiry</option>
                     </select>

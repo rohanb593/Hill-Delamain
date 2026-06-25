@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { end: 15,   suffix: "",    label: "Offices in Zambia",  note: "Across Lusaka, Copperbelt & borders" },
+  { end: 14,   suffix: "",    label: "Offices in Zambia",  note: "Across Lusaka, Copperbelt & borders" },
+  { end: 20,   suffix: "",    label: "Delivery Vehicles",   note: "Domestic distribution fleet" },
   { end: 150,  suffix: "+",   label: "Expert Staff",        note: "Experienced freight professionals" },
   { end: 1965, suffix: "",    label: "Established",         note: "Over 60 years of proven performance" },
-  { end: 5956, suffix: "m²",  label: "Bonded Warehouse",    note: "Across Lusaka, Ndola, Kitwe & Chingola" },
+  { end: 5956, suffix: "m²",  label: "Warehouse",            note: "Across Lusaka, Ndola, Kitwe & Chingola" },
 ];
 
 function useCountUp(end: number, duration = 1800, active: boolean) {
@@ -37,21 +38,21 @@ function useCountUp(end: number, duration = 1800, active: boolean) {
   return value;
 }
 
-function StatCard({ stat, index, active }: { stat: typeof stats[0]; index: number; active: boolean }) {
+function StatCard({ stat, index, active, className = "" }: { stat: typeof stats[0]; index: number; active: boolean; className?: string }) {
   const val = useCountUp(stat.end, 1600 + index * 200, active);
 
   return (
     <div
-      className="reveal flex flex-col"
+      className={`reveal flex flex-col ${className}`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {/* Number */}
-      <div className="flex items-baseline gap-1 mb-3">
+      <div className="flex items-baseline justify-center gap-1 mb-3">
         <span
           className="font-display font-800 leading-none tabular-nums"
           style={{
             color: "white",
-            fontSize: "clamp(3.5rem, 8vw, 6.5rem)",
+            fontSize: "clamp(3.5rem, 5.5vw, 5.5rem)",
             letterSpacing: "-0.04em",
           }}
         >
@@ -62,7 +63,7 @@ function StatCard({ stat, index, active }: { stat: typeof stats[0]; index: numbe
             className="font-display font-700"
             style={{
               color: "oklch(0.86 0.12 25)",
-              fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+              fontSize: "clamp(1.5rem, 2.5vw, 2.5rem)",
               letterSpacing: "-0.02em",
             }}
           >
@@ -73,14 +74,14 @@ function StatCard({ stat, index, active }: { stat: typeof stats[0]; index: numbe
 
       {/* Label */}
       <p
-        className="font-semibold text-sm uppercase tracking-[0.12em] mb-2"
+        className="font-semibold text-base uppercase tracking-[0.12em] mb-2"
         style={{ color: "oklch(0.92 0.06 25)" }}
       >
         {stat.label}
       </p>
 
       {/* Note */}
-      <p className="text-sm leading-relaxed" style={{ color: "oklch(0.75 0.12 25 / 0.85)" }}>
+      <p className="text-base leading-relaxed" style={{ color: "oklch(0.75 0.12 25 / 0.85)" }}>
         {stat.note}
       </p>
     </div>
@@ -120,19 +121,19 @@ export default function Stats() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
         {/* Header */}
-        <div className="mb-16 lg:mb-20 reveal">
+        <div className="mb-16 lg:mb-20 reveal text-center">
           <p
             className="font-display font-800 leading-tight"
             style={{
               color: "white",
-              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
               letterSpacing: "-0.025em",
             }}
           >
             Moving Zambia Forward.
           </p>
           <p
-            className="mt-2 text-base font-medium"
+            className="mt-3 text-lg font-medium"
             style={{ color: "oklch(0.92 0.06 25)" }}
           >
             Local expertise. Global reach. Where service counts.
@@ -140,35 +141,21 @@ export default function Stats() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {stats.map((s, i) => (
-            <StatCard key={i} stat={s} index={i} active={active} />
-          ))}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-6 lg:items-start lg:justify-items-center">
+          {stats.map((s, i) => {
+            const lastOdd = stats.length % 2 !== 0 && i === stats.length - 1;
+            return (
+              <StatCard
+                key={i}
+                stat={s}
+                index={i}
+                active={active}
+                className={`items-center text-center${lastOdd ? " col-span-2 lg:col-span-1" : ""}`}
+              />
+            );
+          })}
         </div>
 
-        {/* Bottom partners strip */}
-        <div
-          className="mt-20 pt-10 reveal"
-          style={{ borderTop: "1px solid oklch(1 0 0 / 0.15)" }}
-        >
-          <p
-            className="text-sm font-semibold tracking-[0.15em] uppercase mb-5"
-            style={{ color: "oklch(0.90 0.06 25 / 0.7)" }}
-          >
-            Global Partners
-          </p>
-          <div className="flex flex-wrap items-center gap-8 lg:gap-12">
-            {["Air & Ocean Freight", "Contract Logistics", "Port & Terminal Ops", "LCL Consolidation"].map((p, i) => (
-              <span
-                key={i}
-                className="text-base font-semibold"
-                style={{ color: "oklch(1 0 0 / 0.75)" }}
-              >
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

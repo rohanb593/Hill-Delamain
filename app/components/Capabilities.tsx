@@ -10,7 +10,7 @@ const pillars = [
     number: "02",
     eyebrow: "People",
     title: "150+ Trained Professionals",
-    body: "A team of over 150 experienced staff across 15 Zambian offices, supported by clearly defined SOPs and continuous development aligned with evolving ZRA regulations.",
+    body: "A team of over 150 experienced staff across 14 Zambian offices, supported by clearly defined SOPs and continuous development aligned with evolving ZRA regulations.",
     accent: "oklch(0.37 0.23 265)",
   },
   {
@@ -23,7 +23,6 @@ const pillars = [
 ];
 
 const certifications = [
-  { label: "IATA Registered", detail: "67-4 7390" },
   { label: "ZCFAA Member", detail: "" },
   { label: "ZRA ASYCUDA", detail: "53 Profiles" },
   { label: "TAZ Member", detail: "" },

@@ -1,13 +1,13 @@
 "use client";
 
-import { PlaneTakeoff, Ship, Truck, ShieldCheck, FileSearch, Warehouse } from "lucide-react";
+import { PlaneTakeoff, Ship, Truck, FileSearch, Warehouse } from "lucide-react";
 
 const services = [
   {
     icon: PlaneTakeoff,
     title: "Air Freight",
     description:
-      "IATA-registered agents handling air consolidations and charter cargo. We manage the full cycle — origin to final delivery — with precision.",
+      "Handling air consolidations and charter cargo. We manage the full cycle — origin to final delivery — with precision.",
     accent: "oklch(0.52 0.20 25)",
   },
   {
@@ -25,13 +25,6 @@ const services = [
     accent: "oklch(0.52 0.20 25)",
   },
   {
-    icon: ShieldCheck,
-    title: "Cargo Insurance",
-    description:
-      "Comprehensive cargo insurance arranged through African Grey Insurance, covering your goods at every stage of transit.",
-    accent: "oklch(0.37 0.23 265)",
-  },
-  {
     icon: FileSearch,
     title: "Customs Broking",
     description:
@@ -42,7 +35,7 @@ const services = [
     icon: Warehouse,
     title: "Warehousing & Logistics",
     description:
-      "5,956m² of bonded warehouse space across Lusaka, Ndola, Kitwe, and Chingola. Full logistics solutions: procurement, expediting, packing, and last-mile distribution.",
+      "5,956m² of warehouse space across Lusaka, Ndola, Kitwe, and Chingola. Full logistics solutions: procurement, expediting, packing, and last-mile distribution.",
     accent: "oklch(0.37 0.23 265)",
   },
 ];
@@ -79,7 +72,7 @@ export default function Services() {
             style={{ color: "oklch(0.50 0.008 262)", maxWidth: "42ch" }}
           >
             One company handling every dimension of your supply chain across Zambia
-            and beyond. IATA registered, ZRA compliant, and trusted by leading
+            and beyond. ZRA compliant, and trusted by leading
             mining and industrial companies for over 60 years.
           </p>
         </div>

@@ -8,11 +8,10 @@ const footerLinks = {
     "Sea Freight",
     "Surface Freight",
     "Customs Broking",
-    "Cargo Insurance",
     "Warehousing & Logistics",
   ],
   Company: ["About Us", "Our Network", "Our Team", "Contact Us"],
-  Affiliations: ["IATA (67-4 7390)", "ZCFAA", "TAZ", "ZCILT"],
+  Affiliations: ["ZCFAA", "TAZ", "ZCILT"],
 };
 
 export default function Footer() {

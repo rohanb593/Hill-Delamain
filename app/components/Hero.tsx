@@ -105,7 +105,7 @@ export default function Hero() {
             style={{ color: "oklch(0.78 0.02 262)", maxWidth: "50ch" }}
           >
             Zambia&apos;s leading clearing and freight forwarding company.
-            Local expertise across 15 offices — backed by partnerships with
+            Local expertise across 14 offices — backed by partnerships with
             leading global partners.
           </p>
 
@@ -155,9 +155,8 @@ export default function Hero() {
           >
             {[
               { value: "60+", label: "Years" },
-              { value: "15", label: "Zambia Offices" },
+              { value: "14", label: "Zambia Offices" },
               { value: "150+", label: "Expert Staff" },
-              { value: "IATA", label: "Registered" },
             ].map((s) => (
               <div key={s.value} className="flex items-baseline gap-1.5">
                 <span

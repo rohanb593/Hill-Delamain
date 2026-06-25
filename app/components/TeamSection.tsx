@@ -134,7 +134,7 @@ export default function TeamSection() {
               className="text-base lg:text-lg leading-relaxed"
               style={{ color: "white" }}
             >
-              150 trained professionals across 15 offices — each one accountable
+              150 trained professionals across 14 offices — each one accountable
               to the same standard of service that has defined Hill + Delamain
               since 1965.
             </p>
