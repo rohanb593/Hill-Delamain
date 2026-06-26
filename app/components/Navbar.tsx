@@ -21,7 +21,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/hd-logo-nav.png"
+            src="/hd-logo-new.png"
             alt="Hill + Delamain"
             width={120}
             height={48}

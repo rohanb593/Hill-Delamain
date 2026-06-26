@@ -26,17 +26,33 @@ const certifications = [
   { label: "ZCFAA Member", detail: "" },
   { label: "ZRA ASYCUDA", detail: "53 Profiles" },
   { label: "TAZ Member", detail: "" },
-  { label: "Transit Bond", detail: "ZMW 150M" },
+  { label: "Transit Bond Guarantee", detail: "ZMW 105 Million" },
+  { label: "Warehouse Bond Guarantee", detail: "ZMW 145 Million" },
   { label: "ZCILT Member", detail: "" },
 ];
 
 export default function Capabilities() {
   return (
     <section
-      className="min-h-[100dvh] py-20 lg:py-24"
+      className="relative min-h-[100dvh] py-20 lg:py-24 overflow-hidden"
       style={{ background: "oklch(0.97 0.005 258)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <img
+        src="/hd-ship-bg.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute"
+        style={{
+          top: "-5%",
+          right: "-4%",
+          width: "clamp(400px, 50vw, 720px)",
+          opacity: 0.35,
+          zIndex: 0,
+          mixBlendMode: "multiply",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* ── Header ── */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 lg:mb-18 reveal">
@@ -84,7 +100,8 @@ export default function Capabilities() {
               key={i}
               className="reveal rounded-xl overflow-hidden"
               style={{
-                background: "white",
+                background: "oklch(1 0 0 / 0.15)",
+                backdropFilter: "blur(2px)",
                 border: `1px solid oklch(0.90 0.01 262)`,
                 borderTop: `4px solid ${p.accent}`,
                 transitionDelay: `${i * 80}ms`,
@@ -136,20 +153,21 @@ export default function Capabilities() {
             {certifications.map((c, i) => (
               <div
                 key={i}
-                className="rounded-xl px-5 py-5 flex flex-col items-center justify-center text-center"
+                className="rounded-xl px-5 py-7 flex flex-col items-center justify-center text-center"
                 style={{
                   background: "white",
                   border: `2px solid ${i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)"}`,
+                  minHeight: "130px",
                 }}
               >
                 <p
-                  className="text-lg font-semibold leading-tight mb-1"
+                  className="text-base font-semibold leading-tight"
                   style={{ color: i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)" }}
                 >
                   {c.label}
                 </p>
                 {c.detail && (
-                  <p className="text-base font-bold mt-1" style={{ color: "oklch(0.13 0.01 262)" }}>
+                  <p className="text-base font-bold mt-2" style={{ color: "oklch(0.13 0.01 262)" }}>
                     {c.detail}
                   </p>
                 )}

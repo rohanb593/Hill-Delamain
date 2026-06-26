@@ -12,6 +12,8 @@ const partners = [
   { role: "Contract Logistics" },
   { role: "Port & Terminal Ops" },
   { role: "LCL Consolidation" },
+  { role: "Partner 5" },
+  { role: "Partner 6" },
 ];
 
 const offices = [
@@ -336,7 +338,7 @@ export default function GlobalNetwork() {
       </section>
 
       {/* ── Section 2: Stats strip ────────────────────────────────── */}
-      <section className="py-14 reveal">
+      <section className="py-6 reveal">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div
             className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl overflow-hidden"
@@ -346,7 +348,7 @@ export default function GlobalNetwork() {
               { value: "14", label: "Offices in Zambia", sub: "Lusaka, Copperbelt & borders" },
               { value: "8",  label: "Border Crossings",  sub: "All major Zambian border posts" },
               { value: "60+", label: "Years in Zambia",  sub: "Established 1965" },
-              { value: "4",  label: "Global Partners",   sub: "Leading logistics networks" },
+              { value: "6",  label: "Global Partners",   sub: "Leading logistics networks" },
             ].map((s, i) => (
               <div
                 key={i}
@@ -384,7 +386,7 @@ export default function GlobalNetwork() {
         className="relative overflow-hidden"
         style={{ background: "oklch(0.97 0.005 258)" }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-0">
           {/* Header */}
           <div className="grid lg:grid-cols-2 gap-8 items-end mb-12 reveal">
             <div>
@@ -411,14 +413,14 @@ export default function GlobalNetwork() {
               className="text-base leading-relaxed"
               style={{ color: "oklch(0.50 0.008 262)", maxWidth: "44ch" }}
             >
-              Strategic alliances with four of the world&apos;s leading logistics
+              Strategic alliances with six of the world&apos;s leading logistics
               organisations give our clients access to global networks across
               air, ocean, and land — all managed locally from Zambia.
             </p>
           </div>
 
           {/* Partners grid above the map */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4 reveal">
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 mb-4 reveal">
             {partners.map((p, i) => (
               <div
                 key={i}

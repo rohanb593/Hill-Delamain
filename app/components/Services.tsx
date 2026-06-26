@@ -40,10 +40,77 @@ const services = [
   },
 ];
 
+function ServiceCard({ s, i }: { s: typeof services[0]; i: number }) {
+  return (
+    <article
+      className="reveal rounded-xl overflow-hidden cursor-default transition-transform duration-200"
+      style={{
+        transitionDelay: `${(i % 3) * 80}ms`,
+        background: "oklch(1 0 0 / 0.05)",
+        backdropFilter: "blur(0px)",
+        border: "1px solid oklch(0.90 0.01 262)",
+        borderTop: `4px solid ${s.accent}`,
+      }}
+      onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
+    >
+      <div className="p-7">
+        <div
+          className="inline-flex items-center justify-center w-11 h-11 rounded-lg mb-5"
+          style={{ background: `${s.accent}15`, color: s.accent }}
+        >
+          <s.icon size={24} strokeWidth={1.5} />
+        </div>
+        <h3
+          className="font-display font-700 text-xl mb-3 leading-tight"
+          style={{ color: "oklch(0.13 0.01 262)" }}
+        >
+          {s.title}
+        </h3>
+        <p
+          className="text-base leading-relaxed"
+          style={{ color: "oklch(0.50 0.008 262)" }}
+        >
+          {s.description}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export default function Services() {
   return (
-    <section className="min-h-[100dvh] py-20 lg:py-24" style={{ background: "oklch(0.97 0.005 258)" }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+    <section className="relative min-h-[100dvh] py-20 lg:py-24 overflow-hidden" style={{ background: "oklch(0.97 0.005 258)" }}>
+
+      {/* Background decorations */}
+      <img
+        src="/hd-plane-bg.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute left-1/2 top-1/2"
+        style={{
+          transform: "translate(-50%, -35%)",
+          width: "clamp(600px, 80vw, 1100px)",
+          opacity: 0.45,
+          zIndex: 0,
+        }}
+      />
+      <img
+        src="/hd-ship-bg.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute"
+        style={{
+          bottom: "-6%",
+          left: "-4%",
+          width: "clamp(220px, 28vw, 420px)",
+          opacity: 0.12,
+          zIndex: 0,
+          mixBlendMode: "multiply",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
 
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 reveal">
@@ -83,42 +150,17 @@ export default function Services() {
           <div className="flex-1" style={{ background: "oklch(0.37 0.23 265)" }} />
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <article
-              key={i}
-              className="reveal rounded-xl overflow-hidden cursor-default transition-transform duration-200"
-              style={{
-                transitionDelay: `${(i % 3) * 80}ms`,
-                background: "white",
-                border: "1px solid oklch(0.90 0.01 262)",
-                borderTop: `4px solid ${s.accent}`,
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
-            >
-              <div className="p-7">
-                <div
-                  className="inline-flex items-center justify-center w-11 h-11 rounded-lg mb-5"
-                  style={{ background: `${s.accent}15`, color: s.accent }}
-                >
-                  <s.icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3
-                  className="font-display font-700 text-xl mb-3 leading-tight"
-                  style={{ color: "oklch(0.13 0.01 262)" }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  className="text-base leading-relaxed"
-                  style={{ color: "oklch(0.50 0.008 262)" }}
-                >
-                  {s.description}
-                </p>
-              </div>
-            </article>
+        {/* Row 1 — 3 cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+          {services.slice(0, 3).map((s, i) => (
+            <ServiceCard key={i} s={s} i={i} />
+          ))}
+        </div>
+
+        {/* Row 2 — 2 cards centred */}
+        <div className="grid sm:grid-cols-2 gap-5 lg:w-2/3 lg:mx-auto">
+          {services.slice(3).map((s, i) => (
+            <ServiceCard key={i + 3} s={s} i={i + 3} />
           ))}
         </div>
 
@@ -126,3 +168,4 @@ export default function Services() {
     </section>
   );
 }
+
