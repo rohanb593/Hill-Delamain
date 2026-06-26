@@ -2,6 +2,17 @@
 
 import { useState } from "react";
 
+const fieldBase: React.CSSProperties = {
+  border: "1.5px solid oklch(0.90 0.008 262)",
+  background: "oklch(0.975 0.003 262)",
+  color: "oklch(0.13 0.01 262)",
+  borderRadius: "8px",
+  outline: "none",
+  width: "100%",
+  fontSize: "0.875rem",
+  transition: "border-color 0.15s, background 0.15s",
+};
+
 export default function ContactSection() {
   const [form, setForm] = useState({
     name: "",
@@ -11,7 +22,6 @@ export default function ContactSection() {
     service: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -21,7 +31,17 @@ export default function ContactSection() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    const subject = `Freight Enquiry${form.company ? ` — ${form.company}` : ""}${form.service ? ` (${form.service})` : ""}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Company: ${form.company}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || "—"}`,
+      `Service: ${form.service || "—"}`,
+      ``,
+      form.message,
+    ].join("\n");
+    window.location.href = `mailto:logistics@hdcargo.co.zm?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -30,16 +50,14 @@ export default function ContactSection() {
       className="min-h-[100dvh] flex items-center py-20 lg:py-24 relative overflow-hidden"
       style={{ background: "oklch(0.37 0.23 265)" }}
     >
-      {/* Background decoration */}
       <div
         className="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, oklch(0.52 0.20 25), transparent 70%)",
-        }}
+        style={{ background: "radial-gradient(circle, oklch(0.52 0.20 25), transparent 70%)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+
           {/* Left: Info */}
           <div>
             <span
@@ -50,12 +68,7 @@ export default function ContactSection() {
             </span>
             <h2
               className="font-display font-800 leading-tight mb-6 reveal"
-              style={{
-                color: "white",
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                letterSpacing: "-0.02em",
-                textWrap: "balance",
-              }}
+              style={{ color: "white", fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.02em", textWrap: "balance" }}
             >
               Ready to Ship?
               <br />
@@ -70,7 +83,6 @@ export default function ContactSection() {
               promises we cannot keep.
             </p>
 
-            {/* Contact details */}
             <div className="space-y-5 reveal">
               {[
                 {
@@ -112,12 +124,8 @@ export default function ContactSection() {
                     {c.icon}
                   </div>
                   <div>
-                    <p className="text-sm font-medium mb-0.5" style={{ color: "oklch(0.65 0.04 262)" }}>
-                      {c.label}
-                    </p>
-                    <p className="text-base font-medium" style={{ color: "oklch(0.92 0.02 262)" }}>
-                      {c.value}
-                    </p>
+                    <p className="text-sm font-medium mb-0.5" style={{ color: "oklch(0.65 0.04 262)" }}>{c.label}</p>
+                    <p className="text-base font-medium" style={{ color: "oklch(0.92 0.02 262)" }}>{c.value}</p>
                   </div>
                 </div>
               ))}
@@ -126,100 +134,99 @@ export default function ContactSection() {
 
           {/* Right: Form */}
           <div
-            className="rounded-2xl p-8 lg:p-10 reveal-right"
-            style={{ background: "white" }}
+            className="rounded-2xl reveal-right"
+            style={{ background: "white", boxShadow: "0 8px 40px oklch(0.20 0.15 265 / 0.25)" }}
           >
-            {submitted ? (
-              <div className="text-center py-10">
-                <div
-                  className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-5"
-                  style={{ background: "oklch(0.52 0.20 25)" }}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" aria-hidden="true">
-                    <path d="M5 12l5 5L19 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <div
+              className="px-7 lg:px-9 py-5"
+              style={{ borderBottom: "1px solid oklch(0.93 0.005 262)" }}
+            >
+              <h3 className="font-display font-700 text-xl" style={{ color: "oklch(0.13 0.01 262)" }}>
+                Send an Enquiry
+              </h3>
+            </div>
+
+            <form onSubmit={handleSubmit} className="px-7 lg:px-9 py-6 space-y-4">
+
+              <div className="grid sm:grid-cols-2 gap-3.5">
+                <Field label="Full Name" name="name" value={form.name} onChange={handleChange} placeholder="John Smith" required />
+                <Field label="Company" name="company" value={form.company} onChange={handleChange} placeholder="Acme Ltd" required />
+              </div>
+
+              <Field label="Email Address" name="email" type="email" value={form.email} onChange={handleChange} placeholder="john@acme.com" required />
+
+              <Field label="Phone (optional)" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+260 955 123 456" />
+
+              <div>
+                <label className="block text-xs font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
+                  Service Required
+                </label>
+                <div className="relative">
+                  <select
+                    name="service"
+                    value={form.service}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2.5 outline-none text-sm appearance-none cursor-pointer"
+                    style={{
+                      ...fieldBase,
+                      color: form.service ? "oklch(0.13 0.01 262)" : "oklch(0.55 0.005 262)",
+                    }}
+                  >
+                    <option value="">Select a service…</option>
+                    <option>Air Freight</option>
+                    <option>Sea Freight</option>
+                    <option>Surface Freight</option>
+                    <option>Customs Broking</option>
+                    <option>Warehousing &amp; Logistics</option>
+                    <option>Domestic Distribution</option>
+                    <option>General Enquiry</option>
+                  </select>
+                  <svg
+                    className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                    width="12" height="12" viewBox="0 0 14 14" fill="none"
+                    style={{ color: "oklch(0.55 0.005 262)" }}
+                  >
+                    <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <h3
-                  className="font-display font-700 text-2xl mb-3"
-                  style={{ color: "oklch(0.13 0.01 262)" }}
-                >
-                  Message Sent!
-                </h3>
-                <p style={{ color: "oklch(0.50 0.008 262)" }}>
-                  Thank you for reaching out. A member of our team will be in touch shortly.
-                </p>
               </div>
-            ) : (
-              <>
-                <h3
-                  className="font-display font-700 text-xl mb-6"
-                  style={{ color: "oklch(0.13 0.01 262)" }}
-                >
-                  Send an Enquiry
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <Field label="Full Name" name="name" value={form.name} onChange={handleChange} placeholder="John Smith" required />
-                    <Field label="Company" name="company" value={form.company} onChange={handleChange} placeholder="Acme Ltd" />
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="john@acme.com" required />
-                    <Field label="Phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+1 555 000 0000" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
-                      Service Required
-                    </label>
-                    <select
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                      className="w-full rounded-lg px-4 py-2.5 text-base outline-none transition-colors"
-                      style={{
-                        border: "1.5px solid oklch(0.88 0.008 262)",
-                        color: form.service ? "oklch(0.13 0.01 262)" : "oklch(0.60 0.005 262)",
-                      }}
-                    >
-                      <option value="">Select a service…</option>
-                      <option>Air Freight</option>
-                      <option>Sea Freight</option>
-                      <option>Surface Freight</option>
-                      <option>Customs Broking</option>
-                      <option>Warehousing &amp; Logistics</option>
-                      <option>General Enquiry</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      rows={4}
-                      placeholder="Tell us about your shipment requirements…"
-                      className="w-full rounded-lg px-4 py-2.5 text-sm resize-none outline-none transition-colors"
-                      style={{ border: "1.5px solid oklch(0.88 0.008 262)", color: "oklch(0.13 0.01 262)" }}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-3 rounded-lg font-semibold text-base text-white transition-colors duration-200"
-                    style={{ background: "oklch(0.52 0.20 25)" }}
-                    onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)")
-                    }
-                    onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)")
-                    }
-                  >
-                    Send Enquiry
-                  </button>
-                </form>
-              </>
-            )}
+
+              <div>
+                <label className="block text-xs font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="Tell us about your shipment requirements…"
+                  required
+                  className="w-full px-3 py-2.5 text-sm resize-none outline-none"
+                  style={{ ...fieldBase }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "oklch(0.52 0.20 25)"; e.currentTarget.style.background = "white"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.90 0.008 262)"; e.currentTarget.style.background = "oklch(0.975 0.003 262)"; }}
+                />
+              </div>
+
+              <div style={{ height: "1px", background: "oklch(0.93 0.005 262)" }} />
+
+              <button
+                type="submit"
+                className="w-full py-2.5 rounded-lg font-semibold text-sm text-white flex items-center justify-center gap-2 transition-colors duration-200"
+                style={{ background: "oklch(0.52 0.20 25)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.44 0.22 25)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "oklch(0.52 0.20 25)"; }}
+              >
+                Send Enquiry
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </form>
           </div>
+
         </div>
       </div>
     </section>
@@ -245,7 +252,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
+      <label className="block text-xs font-semibold mb-1.5" style={{ color: "oklch(0.38 0.01 262)" }}>
         {label}
       </label>
       <input
@@ -255,11 +262,18 @@ function Field({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-lg px-4 py-2.5 text-base outline-none transition-colors"
+        className="px-3 py-2.5 outline-none"
         style={{
-          border: "1.5px solid oklch(0.88 0.008 262)",
+          border: "1.5px solid oklch(0.90 0.008 262)",
+          background: "oklch(0.975 0.003 262)",
           color: "oklch(0.13 0.01 262)",
+          borderRadius: "8px",
+          width: "100%",
+          fontSize: "0.875rem",
+          transition: "border-color 0.15s, background 0.15s",
         }}
+        onFocus={(e) => { e.currentTarget.style.borderColor = "oklch(0.52 0.20 25)"; e.currentTarget.style.background = "white"; }}
+        onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.90 0.008 262)"; e.currentTarget.style.background = "oklch(0.975 0.003 262)"; }}
       />
     </div>
   );

@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { end: 14,   suffix: "",    label: "Offices in Zambia",  note: "Across Lusaka, Copperbelt & borders" },
-  { end: 20,   suffix: "",    label: "Delivery Vehicles",   note: "Domestic distribution fleet" },
-  { end: 150,  suffix: "+",   label: "Expert Staff",        note: "Experienced freight professionals" },
   { end: 1965, suffix: "",    label: "Established",         note: "Over 60 years of proven performance" },
-  { end: 5956, suffix: "m²",  label: "Warehouse",            note: "Across Lusaka, Ndola, Kitwe & Chingola" },
+  { end: 14,   suffix: "",    label: "Offices in Zambia",  note: "Across Lusaka, Copperbelt & borders" },
+  { end: 150,  suffix: "+",   label: "Expert Staff",        note: "Experienced freight professionals" },
+  { end: 20,   suffix: "",    label: "Delivery Vehicles",   note: "Domestic distribution fleet" },
+  { end: 5956, suffix: "m²",  label: "Warehouse",           note: "Across Lusaka, Ndola, Kitwe & Chingola" },
 ];
 
 function useCountUp(end: number, duration = 1800, active: boolean) {
@@ -106,7 +106,7 @@ export default function Stats() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative pt-10 pb-24 lg:pt-14 lg:pb-32 overflow-hidden"
       style={{ background: "oklch(0.52 0.20 25)" }}
     >
       {/* Subtle texture overlay */}
@@ -116,6 +116,22 @@ export default function Stats() {
           backgroundImage:
             "linear-gradient(oklch(0 0 0) 1px, transparent 1px), linear-gradient(90deg, oklch(0 0 0) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
+        }}
+      />
+
+      {/* Zambian eagle watermark */}
+      <img
+        src="/fish-eagle-outline.svg"
+        alt=""
+        aria-hidden="true"
+        className="hidden lg:block absolute pointer-events-none select-none"
+        style={{
+          top: "25%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "70%",
+          opacity: 0.05,
+          filter: "brightness(0) invert(1)",
         }}
       />
 

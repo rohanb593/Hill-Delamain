@@ -1,6 +1,6 @@
 "use client";
 
-import { PlaneTakeoff, Ship, Truck, FileSearch, Warehouse } from "lucide-react";
+import { PlaneTakeoff, Ship, Truck, FileSearch, Warehouse, Package } from "lucide-react";
 
 const services = [
   {
@@ -29,13 +29,20 @@ const services = [
     title: "Customs Broking",
     description:
       "ZRA-compliant customs broking with 53 ASYCUDA profiles and a ZMW 150M transit bond. Expert HS classification, duty rebates, and post-clearance audit support.",
-    accent: "oklch(0.52 0.20 25)",
+    accent: "oklch(0.37 0.23 265)",
   },
   {
     icon: Warehouse,
     title: "Warehousing & Logistics",
     description:
       "5,956m² of warehouse space across Lusaka, Ndola, Kitwe, and Chingola. Full logistics solutions: procurement, expediting, packing, and last-mile distribution.",
+    accent: "oklch(0.52 0.20 25)",
+  },
+  {
+    icon: Package,
+    title: "Domestic Distribution",
+    description:
+      "Nationwide delivery across Zambia using our own fleet of 20 vehicles. From Lusaka to the Copperbelt and beyond — reliable, tracked, and on time.",
     accent: "oklch(0.37 0.23 265)",
   },
 ];
@@ -95,20 +102,6 @@ export default function Services() {
           zIndex: 0,
         }}
       />
-      <img
-        src="/hd-ship-bg.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute"
-        style={{
-          bottom: "-6%",
-          left: "-4%",
-          width: "clamp(220px, 28vw, 420px)",
-          opacity: 0.12,
-          zIndex: 0,
-          mixBlendMode: "multiply",
-        }}
-      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
 
@@ -157,8 +150,8 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Row 2 — 2 cards centred */}
-        <div className="grid sm:grid-cols-2 gap-5 lg:w-2/3 lg:mx-auto">
+        {/* Row 2 — 3 cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.slice(3).map((s, i) => (
             <ServiceCard key={i + 3} s={s} i={i + 3} />
           ))}

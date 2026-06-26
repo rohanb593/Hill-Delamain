@@ -41,9 +41,8 @@ export default function Capabilities() {
         src="/hd-ship-bg.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none select-none absolute"
+        className="pointer-events-none select-none absolute top-[20%] lg:top-[-5%]"
         style={{
-          top: "-5%",
           right: "-4%",
           width: "clamp(400px, 50vw, 720px)",
           opacity: 0.35,

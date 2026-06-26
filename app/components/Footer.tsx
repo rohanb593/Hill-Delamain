@@ -98,7 +98,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Hill + Delamain. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: TEXT }}>
-            Reg. No. 4861 | TPIN: 1001630844
+            Reg. No. 119680004861 | TPIN: 1001630844
           </p>
         </div>
       </div>

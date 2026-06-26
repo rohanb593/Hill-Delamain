@@ -7,15 +7,6 @@ import type { FlyToFn } from "./ZambiaMap";
 const ZambiaMap = dynamic(() => import("./ZambiaMap"), { ssr: false });
 const WorldNetworkMap = dynamic(() => import("./WorldNetworkMap"), { ssr: false });
 
-const partners = [
-  { role: "Air & Ocean Freight" },
-  { role: "Contract Logistics" },
-  { role: "Port & Terminal Ops" },
-  { role: "LCL Consolidation" },
-  { role: "Partner 5" },
-  { role: "Partner 6" },
-];
-
 const offices = [
   { name: "Lusaka — Inland Depot", type: "Head Office & Depot",   lat: -15.43, lng: 28.28 },
   { name: "Lusaka — Airport",      type: "Air Cargo Terminal",    lat: -15.32, lng: 28.46 },
@@ -417,24 +408,6 @@ export default function GlobalNetwork() {
               organisations give our clients access to global networks across
               air, ocean, and land — all managed locally from Zambia.
             </p>
-          </div>
-
-          {/* Partners grid above the map */}
-          <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 mb-4 reveal">
-            {partners.map((p, i) => (
-              <div
-                key={i}
-                className="rounded-xl p-5"
-                style={{
-                  background: "white",
-                  border: "1px solid oklch(0.90 0.01 262)",
-                }}
-              >
-                <p className="font-semibold text-base leading-snug" style={{ color: "oklch(0.13 0.01 262)" }}>
-                  {p.role}
-                </p>
-              </div>
-            ))}
           </div>
 
           {/* Interactive world network map */}
