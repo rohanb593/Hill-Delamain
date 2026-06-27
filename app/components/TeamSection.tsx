@@ -1,147 +1,225 @@
-import Image from "next/image";
+"use client";
 
 const values = [
-  "Caring",
-  "Attentive to Detail",
-  "Highly Motivated",
-  "Technically Competent",
-  "ZRA Compliant",
-  "Individual Service",
+  { name: "Caring", detail: "Every shipment and every client treated with genuine attention." },
+  { name: "Attentive to Detail", detail: "Clearly defined Standard Operating Procedures across all 14 offices." },
+  { name: "Highly Motivated", detail: "Six decades of earned, proven performance." },
+  { name: "Technically Competent", detail: "Full clearance capability across all commodity types." },
+  { name: "ZRA Compliant", detail: "Certified at every Zambian border post." },
+  { name: "Individual Service", detail: "One point of contact who knows your cargo." },
+];
+
+
+const pillars = [
+  { value: "150+", label: "Expert Staff" },
+  { value: "14",   label: "Zambia Offices" },
+  { value: "60+",  label: "Years Operating" },
 ];
 
 export default function TeamSection() {
   return (
-    <section
-      className="min-h-[100dvh] py-20 lg:py-24"
-      style={{ background: "oklch(0.97 0.005 258)" }}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+    <>
+      {/* ── Page hero — dark navy ── */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: "oklch(0.25 0.22 265)",
+          paddingTop: "clamp(5rem, 8vw, 6rem)",
+          paddingBottom: "clamp(3.5rem, 6vw, 5rem)",
+        }}
+      >
+        {/* Grid texture */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(oklch(1 0 0 / 0.03) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0 / 0.03) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+        {/* Red top edge */}
+        <div
+          className="absolute top-0 left-0 right-0"
+          style={{ height: "3px", background: "oklch(0.52 0.20 25)" }}
+        />
 
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 reveal">
-          <div>
-            <span
-              className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-5"
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
+
+          {/* Two-column: headline left, quote right */}
+          <div className="reveal grid lg:grid-cols-2 gap-10 lg:gap-20 items-end mb-12 lg:mb-14">
+            <div>
+              <h1
+                className="font-display font-800 leading-[1.0]"
+                style={{
+                  color: "white",
+                  fontSize: "clamp(2.5rem, 5.5vw, 4.75rem)",
+                  letterSpacing: "-0.03em",
+                  textWrap: "balance",
+                }}
+              >
+                Most of all,{" "}
+                <span style={{ color: "oklch(0.82 0.12 25)" }}>we have<br />the people.</span>
+              </h1>
+            </div>
+
+            <div className="flex flex-col gap-5">
+              <p
+                className="leading-relaxed"
+                style={{ color: "white", fontSize: "clamp(1.1rem, 2vw, 1.35rem)" }}
+              >
+                Experienced, knowledgeable and, above all, caring. Across every
+                Zambian office you will find freight professionals with clearly
+                defined Standard Operating Procedures who take pride in their work and your cargo.
+              </p>
+            </div>
+          </div>
+
+          {/* Stat pillars */}
+          <div
+            className="reveal flex flex-wrap gap-x-10 gap-y-6 pt-8"
+            style={{ borderTop: "1px solid oklch(1 0 0 / 0.1)" }}
+          >
+            {pillars.map((p, i) => (
+              <div key={p.label} className="flex items-baseline gap-2.5">
+                <span
+                  className="font-display font-800 leading-none"
+                  style={{
+                    fontSize: "clamp(2rem, 3.5vw, 2.875rem)",
+                    letterSpacing: "-0.03em",
+                    color: "white",
+                  }}
+                >
+                  {p.value}
+                </span>
+                <span
+                  className="text-xs font-semibold uppercase tracking-[0.13em]"
+                  style={{ color: "white" }}
+                >
+                  {p.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Philosophy + Values — light ── */}
+      <section
+        className="py-20 lg:py-28"
+        style={{ background: "oklch(0.97 0.005 258)" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+
+          {/* Mission Statement */}
+          <div
+            className="reveal mb-14 pb-14"
+            style={{ borderBottom: "1px solid oklch(0.87 0.008 262)" }}
+          >
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.16em] mb-6"
               style={{ color: "oklch(0.52 0.20 25)" }}
             >
-              Our People
-            </span>
-            <h2
+              Our Mission
+            </p>
+            <p
               className="font-display font-800 leading-tight"
               style={{
                 color: "oklch(0.13 0.01 262)",
-                fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                fontSize: "clamp(1.35rem, 2.6vw, 2.1rem)",
                 letterSpacing: "-0.025em",
                 textWrap: "balance",
+                maxWidth: "70ch",
               }}
             >
-              More Than{" "}
-              <span style={{ color: "oklch(0.52 0.20 25)" }}>150 Expert Staff</span>
-            </h2>
-          </div>
-          <p
-            className="text-base lg:text-lg leading-relaxed"
-            style={{ color: "oklch(0.50 0.008 262)", maxWidth: "42ch" }}
-          >
-            Our people are our competitive advantage. Across every Zambian
-            office you&apos;ll find experienced freight professionals with clearly
-            defined SOPs who take pride in their work and your cargo.
-          </p>
-        </div>
-
-        {/* Identity bar */}
-        <div className="flex h-1.5 rounded-full overflow-hidden mb-14 reveal">
-          <div className="flex-1" style={{ background: "oklch(0.52 0.20 25)" }} />
-          <div className="flex-1" style={{ background: "oklch(0.37 0.23 265)" }} />
-        </div>
-
-        {/* Two-column: image + content */}
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-14">
-
-          {/* Image */}
-          <div className="reveal order-2 lg:order-1 relative">
-            <div
-              className="rounded-2xl overflow-hidden shadow-2xl"
-              style={{ border: "1px solid oklch(0.91 0.008 262)" }}
-            >
-              <Image
-                src="/hd-team.png"
-                alt="Hill + Delamain team"
-                width={700}
-                height={420}
-                className="w-full h-auto"
-              />
-            </div>
-            <div
-              className="absolute -bottom-5 -left-5 w-24 h-24 rounded-xl -z-10"
-              style={{ background: "oklch(0.52 0.20 25)" }}
-            />
-            <div
-              className="absolute -top-4 -right-4 w-16 h-16 rounded-xl -z-10"
-              style={{ background: "oklch(0.13 0.01 262)" }}
-            />
-          </div>
-
-          {/* Values */}
-          <div className="order-1 lg:order-2 reveal">
-            <p
-              className="text-sm font-semibold tracking-[0.15em] uppercase mb-6"
-              style={{ color: "oklch(0.50 0.008 262)" }}
-            >
-              Our Values
+              To be the leading provider in Zambia of world class clearing and
+              freight forwarding services through the deployment of a reliable
+              and efficient management information system, modern handling
+              techniques and technically competent well motivated staff.
             </p>
-            <div className="grid grid-cols-2 gap-3">
-              {values.map((v, i) => (
+          </div>
+
+          {/* Philosophy pull-quote */}
+          <div
+            className="reveal mb-14 pb-14"
+            style={{ borderBottom: "1px solid oklch(0.87 0.008 262)" }}
+          >
+            <div className="grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-start">
+              <p
+                className="font-display font-800 leading-tight"
+                style={{
+                  color: "oklch(0.52 0.20 25)",
+                  fontSize: "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Our Philosophy
+              </p>
+              <p
+                className="text-base lg:text-lg leading-relaxed"
+                style={{ color: "oklch(0.30 0.01 262)", maxWidth: "60ch" }}
+              >
+                H&D believes the traditional qualities of personal service, care and attention
+                to detail continue to be of vital importance. We fully recognise that the
+                customer is the reason for our work, not just the cause of it.
+              </p>
+            </div>
+          </div>
+
+          {/* Values list heading */}
+          <div className="reveal mb-10">
+            <div className="flex items-baseline justify-between gap-8 mb-8">
+              <h2
+                className="font-display font-800 leading-tight"
+                style={{
+                  color: "oklch(0.13 0.01 262)",
+                  fontSize: "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                What We Stand For
+              </h2>
+            </div>
+            <div className="flex overflow-hidden" style={{ height: "1px" }}>
+              <div className="flex-1" style={{ background: "oklch(0.52 0.20 25)" }} />
+              <div className="flex-1" style={{ background: "oklch(0.37 0.23 265)" }} />
+            </div>
+          </div>
+
+          {/* Values manifest */}
+          <div className="reveal">
+            <div>
+              {values.map((v) => (
                 <div
-                  key={v}
-                  className="rounded-xl px-5 py-4"
-                  style={{
-                    background: "white",
-                    border: `2px solid ${i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)"}`,
-                  }}
+                  key={v.name}
+                  className="group flex items-baseline justify-between gap-8 py-5 lg:py-6 cursor-default"
+                  style={{ borderTop: "1px solid oklch(0.87 0.008 262)" }}
                 >
-                  <p
-                    className="text-base font-semibold leading-snug"
-                    style={{ color: i % 2 === 0 ? "oklch(0.52 0.20 25)" : "oklch(0.37 0.23 265)" }}
+                  <span
+                    className="font-display font-800 transition-colors duration-200 text-hd-ink group-hover:text-hd-red"
+                    style={{
+                      fontSize: "clamp(1.4rem, 2.5vw, 2.1rem)",
+                      letterSpacing: "-0.02em",
+                      flexShrink: 0,
+                    }}
                   >
-                    {v}
-                  </p>
+                    {v.name}
+                  </span>
+                  <span
+                    className="text-base leading-relaxed text-right hidden sm:block"
+                    style={{ color: "oklch(0.13 0.01 262)", maxWidth: "28ch", flexShrink: 0 }}
+                  >
+                    {v.detail}
+                  </span>
                 </div>
               ))}
+              <div style={{ borderTop: "1px solid oklch(0.87 0.008 262)" }} />
             </div>
           </div>
 
         </div>
+      </section>
 
-        {/* Quote panels */}
-        <div className="reveal grid lg:grid-cols-2 gap-6">
-          <div
-            className="rounded-2xl px-8 py-10"
-            style={{ background: "oklch(0.52 0.20 25)" }}
-          >
-            <p
-              className="text-lg lg:text-xl font-semibold leading-snug"
-              style={{ color: "white", letterSpacing: "-0.01em" }}
-            >
-              &ldquo;We never make claims we cannot support. We never make promises we cannot keep.&rdquo;
-            </p>
-          </div>
-          <div
-            className="rounded-2xl px-8 py-10 flex flex-col justify-center"
-            style={{ background: "oklch(0.37 0.23 265)" }}
-          >
-            <p
-              className="text-base lg:text-lg leading-relaxed"
-              style={{ color: "white" }}
-            >
-              150 trained professionals across 14 offices — each one accountable
-              to the same standard of service that has defined Hill + Delamain
-              since 1965.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    </>
   );
 }

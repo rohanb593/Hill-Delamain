@@ -48,7 +48,7 @@ export default function ContactSection() {
     <section
       id="contact"
       className="min-h-[100dvh] flex items-center py-20 lg:py-24 relative overflow-hidden"
-      style={{ background: "oklch(0.37 0.23 265)" }}
+      style={{ background: "oklch(0.25 0.22 265)" }}
     >
       <div
         className="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none"
