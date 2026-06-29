@@ -21,8 +21,8 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Contact Us",  href: "/contact" },
   ],
   Affiliations: [
-    { label: "ZCFAA", href: "https://zcfaa.com/" },
     { label: "ZRA",   href: "https://www.zra.org.zm/" },
+    { label: "ZCFAA", href: "https://zcfaa.com/" },
     { label: "TAZ",   href: "https://www.tazambia.com/" },
     { label: "ZCILT", href: "https://zcas.ac.zm/zcas-professional/all-programmes/zambia-chartered-institute-of-logistics-and-transport-zcilt/" },
   ],
