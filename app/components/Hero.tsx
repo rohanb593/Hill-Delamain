@@ -148,29 +148,6 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Trust indicators */}
-          <div
-            className="hero-item hero-item-6 flex flex-wrap items-center gap-5 mt-12 pt-10"
-            style={{ borderTop: "1px solid oklch(1 0 0 / 0.1)" }}
-          >
-            {[
-              { value: "60+", label: "Years" },
-              { value: "14", label: "Zambia Offices" },
-              { value: "150+", label: "Expert Staff" },
-            ].map((s) => (
-              <div key={s.value} className="flex items-baseline gap-1.5">
-                <span
-                  className="font-display font-800 text-2xl leading-none"
-                  style={{ color: "white" }}
-                >
-                  {s.value}
-                </span>
-                <span className="text-sm font-medium" style={{ color: "oklch(0.60 0.02 262)" }}>
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

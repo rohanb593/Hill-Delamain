@@ -45,7 +45,7 @@ export default function Capabilities() {
         style={{
           right: "-4%",
           width: "clamp(400px, 50vw, 720px)",
-          opacity: 0.35,
+          opacity: 0.7,
           zIndex: 0,
           mixBlendMode: "multiply",
         }}
@@ -178,26 +178,26 @@ export default function Capabilities() {
         {/* ── Quote ── */}
         <div className="reveal grid lg:grid-cols-2 gap-6">
           <div
-            className="rounded-2xl px-8 py-10"
+            className="rounded-2xl px-8 py-10 flex items-center justify-center"
             style={{ background: "oklch(0.52 0.20 25)" }}
           >
             <p
-              className="text-lg lg:text-xl font-semibold leading-snug"
+              className="text-lg lg:text-xl font-bold leading-snug text-center"
               style={{ color: "white", letterSpacing: "-0.01em" }}
             >
               &ldquo;We never make claims we cannot support. We never make promises we cannot keep.&rdquo;
             </p>
           </div>
           <div
-            className="rounded-2xl px-8 py-10 flex flex-col justify-center"
+            className="rounded-2xl px-8 py-10 flex items-center justify-center"
             style={{ background: "oklch(0.37 0.23 265)" }}
           >
             <p
-              className="text-base lg:text-lg leading-relaxed"
+              className="text-base lg:text-lg leading-relaxed font-bold text-center"
               style={{ color: "white" }}
             >
               60 years of consistent, accountable service to Zambia&apos;s most
-              demanding industries — mining, manufacturing, government, and
+              demanding industries — mining, manufacturing, and
               international trade.
             </p>
           </div>

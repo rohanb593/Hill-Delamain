@@ -28,7 +28,7 @@ const services = [
     icon: FileSearch,
     title: "Customs Broking",
     description:
-      "ZRA-compliant customs broking with 53 ASYCUDA profiles and a ZMW 150M transit bond. Expert HS classification, duty rebates, and post-clearance audit support.",
+      "ZRA-compliant customs broking with 53 ASYCUDA profiles and managing ZMW 250M bond. Expert HS classification, duty rebates, and post-clearance audit support.",
     accent: "oklch(0.37 0.23 265)",
   },
   {
@@ -42,7 +42,7 @@ const services = [
     icon: Package,
     title: "Domestic Distribution",
     description:
-      "Nationwide delivery across Zambia using our own fleet of 20 vehicles. From Lusaka to the Copperbelt and beyond — reliable, tracked, and on time.",
+      "Nationwide delivery across Zambia using our own fleet of 20 vehicles. From Lusaka to the Copperbelt and beyond — including service delivery to the DRC Copperbelt. Reliable, tracked, and on time.",
     accent: "oklch(0.37 0.23 265)",
   },
 ];
@@ -98,7 +98,7 @@ export default function Services() {
         style={{
           transform: "translate(-50%, -35%)",
           width: "clamp(600px, 80vw, 1100px)",
-          opacity: 0.45,
+          opacity: 0.7,
           zIndex: 0,
         }}
       />

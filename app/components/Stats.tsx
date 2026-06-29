@@ -81,7 +81,7 @@ function StatCard({ stat, index, active, className = "" }: { stat: typeof stats[
       </p>
 
       {/* Note */}
-      <p className="text-base leading-relaxed" style={{ color: "oklch(0.75 0.12 25 / 0.85)" }}>
+      <p className="text-base leading-relaxed" style={{ color: "white" }}>
         {stat.note}
       </p>
     </div>
@@ -130,7 +130,7 @@ export default function Stats() {
           left: "50%",
           transform: "translateX(-50%)",
           width: "70%",
-          opacity: 0.05,
+          opacity: 0.15,
           filter: "brightness(0) invert(1)",
         }}
       />

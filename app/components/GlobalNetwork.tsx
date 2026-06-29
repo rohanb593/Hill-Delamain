@@ -343,11 +343,10 @@ export default function GlobalNetwork() {
             ].map((s, i) => (
               <div
                 key={i}
-                className="px-6 py-8 flex flex-col"
+                className={`px-6 py-8 flex flex-col ${i < 2 ? "border-b sm:border-b-0" : ""} ${i % 2 === 0 ? "border-r" : "sm:border-r"} ${i === 3 ? "sm:border-r-0" : ""}`}
                 style={{
                   background: "white",
-                  borderRight: i % 2 === 0 ? "1px solid oklch(0.90 0.01 262)" : "none",
-                  borderBottom: i < 2 ? "1px solid oklch(0.90 0.01 262)" : "none",
+                  borderColor: "oklch(0.90 0.01 262)",
                 }}
               >
                 <span
