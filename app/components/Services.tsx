@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { PlaneTakeoff, Ship, Truck, FileSearch, Warehouse, Package } from "lucide-react";
 
 const services = [
@@ -9,6 +10,7 @@ const services = [
     description:
       "Handling air consolidations and charter cargo. We manage the full cycle — origin to final delivery — with precision.",
     accent: "oklch(0.52 0.20 25)",
+    href: "/services/air-freight",
   },
   {
     icon: Ship,
@@ -16,6 +18,7 @@ const services = [
     description:
       "FCL and LCL groupage services to and from Zambia. Competitive rates, reliable schedules, and full documentation support on every shipment.",
     accent: "oklch(0.37 0.23 265)",
+    href: "/services/sea-freight",
   },
   {
     icon: Truck,
@@ -23,6 +26,7 @@ const services = [
     description:
       "Local, continental, and inter-continental road transport. Our own fleet of 20 vehicles — including 8 trucks up to 24 tons — covers all Zambian routes and cross-border corridors.",
     accent: "oklch(0.52 0.20 25)",
+    href: "/services/surface-freight",
   },
   {
     icon: FileSearch,
@@ -30,6 +34,7 @@ const services = [
     description:
       "ZRA-compliant customs broking with 53 ASYCUDA profiles and managing ZMW 250M bond. Expert HS classification, duty rebates, and post-clearance audit support.",
     accent: "oklch(0.37 0.23 265)",
+    href: "/services/customs-broking",
   },
   {
     icon: Warehouse,
@@ -37,6 +42,7 @@ const services = [
     description:
       "5,956m² of warehouse space across Lusaka, Ndola, Kitwe, and Chingola. Full logistics solutions: procurement, expediting, packing, and last-mile distribution.",
     accent: "oklch(0.52 0.20 25)",
+    href: "/services/warehousing",
   },
   {
     icon: Package,
@@ -44,24 +50,27 @@ const services = [
     description:
       "Nationwide delivery across Zambia using our own fleet of 20 vehicles. From Lusaka to the Copperbelt and beyond — including service delivery to the DRC Copperbelt. Reliable, tracked, and on time.",
     accent: "oklch(0.37 0.23 265)",
+    href: "/services/domestic-distribution",
   },
 ];
 
 function ServiceCard({ s, i }: { s: typeof services[0]; i: number }) {
   return (
-    <article
-      className="reveal rounded-xl overflow-hidden cursor-default transition-transform duration-200"
+    <Link
+      href={s.href}
+      className="reveal rounded-xl overflow-hidden transition-transform duration-200 block"
       style={{
         transitionDelay: `${(i % 3) * 80}ms`,
         background: "oklch(1 0 0 / 0.05)",
         backdropFilter: "blur(0px)",
         border: "1px solid oklch(0.90 0.01 262)",
         borderTop: `4px solid ${s.accent}`,
+        textDecoration: "none",
       }}
       onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; }}
       onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
     >
-      <div className="p-7">
+      <div className="p-7 flex flex-col h-full">
         <div
           className="inline-flex items-center justify-center w-11 h-11 rounded-lg mb-5"
           style={{ background: `${s.accent}15`, color: s.accent }}
@@ -75,13 +84,19 @@ function ServiceCard({ s, i }: { s: typeof services[0]; i: number }) {
           {s.title}
         </h3>
         <p
-          className="text-base leading-relaxed"
+          className="text-base leading-relaxed flex-1"
           style={{ color: "oklch(0.50 0.008 262)" }}
         >
           {s.description}
         </p>
+        <span className="inline-flex items-center gap-1.5 text-sm font-semibold mt-5" style={{ color: s.accent }}>
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }
 

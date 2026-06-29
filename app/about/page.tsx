@@ -4,6 +4,13 @@ export const metadata = {
   title: "About | Hill + Delamain",
   description:
     "Established in Zambia in 1965. Majority Zambian owned, globally connected. 150+ expert staff, 14 offices, and international partnerships with leading global partners.",
+  keywords: [
+    "Hill Delamain history",
+    "freight forwarder Zambia established 1965",
+    "Zambian owned freight company",
+    "logistics company Zambia",
+    "ZCFAA member Zambia",
+  ],
 };
 
 export default function AboutPage() {

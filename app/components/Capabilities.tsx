@@ -26,7 +26,7 @@ const certifications = [
   { label: "ZCFAA Member", detail: "" },
   { label: "ZRA ASYCUDA", detail: "53 Profiles" },
   { label: "TAZ Member", detail: "" },
-  { label: "Transit Bond Guarantee", detail: "ZMW 105 Million" },
+  { label: "Transit Bond Guarantee", detail: "ZMW 250M" },
   { label: "Warehouse Bond Guarantee", detail: "ZMW 145 Million" },
   { label: "ZCILT Member", detail: "" },
 ];
@@ -54,7 +54,7 @@ export default function Capabilities() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* ── Header ── */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 lg:mb-18 reveal">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-8 reveal">
           <div>
             <span
               className="inline-block text-sm font-semibold tracking-[0.18em] uppercase mb-5"

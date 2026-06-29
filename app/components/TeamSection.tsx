@@ -192,7 +192,7 @@ export default function TeamSection() {
               {values.map((v) => (
                 <div
                   key={v.name}
-                  className="group flex items-baseline justify-between gap-8 py-5 lg:py-6 cursor-default"
+                  className="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-8 py-5 lg:py-6 cursor-default"
                   style={{ borderTop: "1px solid oklch(0.87 0.008 262)" }}
                 >
                   <span
@@ -200,14 +200,13 @@ export default function TeamSection() {
                     style={{
                       fontSize: "clamp(1.4rem, 2.5vw, 2.1rem)",
                       letterSpacing: "-0.02em",
-                      flexShrink: 0,
                     }}
                   >
                     {v.name}
                   </span>
                   <span
-                    className="text-base leading-relaxed text-right hidden sm:block"
-                    style={{ color: "oklch(0.13 0.01 262)", maxWidth: "28ch", flexShrink: 0 }}
+                    className="text-base leading-relaxed sm:text-right"
+                    style={{ color: "oklch(0.45 0.008 262)", maxWidth: "38ch" }}
                   >
                     {v.detail}
                   </span>
