@@ -21,9 +21,10 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Contact Us",  href: "/contact" },
   ],
   Affiliations: [
-    { label: "ZCFAA", href: "#" },
-    { label: "TAZ",   href: "#" },
-    { label: "ZCILT", href: "#" },
+    { label: "ZCFAA", href: "https://zcfaa.com/" },
+    { label: "ZRA",   href: "https://www.zra.org.zm/" },
+    { label: "TAZ",   href: "https://www.tazambia.com/" },
+    { label: "ZCILT", href: "https://zcas.ac.zm/zcas-professional/all-programmes/zambia-chartered-institute-of-logistics-and-transport-zcilt/" },
   ],
 };
 
@@ -92,6 +93,7 @@ export default function Footer() {
                       style={{ color: TEXT }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "oklch(0.52 0.20 25)")}
                       onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = TEXT)}
+                      {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                       {l.label}
                     </Link>
