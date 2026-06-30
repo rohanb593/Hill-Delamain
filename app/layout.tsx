@@ -8,7 +8,13 @@ export const metadata: Metadata = {
   title: "Hill + Delamain | Zambia's Leading Freight Forwarder",
   description:
     "Established in Zambia in 1965, Hill + Delamain is Zambia's leading clearing and freight forwarding company. 14 offices, 150+ staff.",
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/icon.png",    sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
   keywords: [
     "freight forwarding Zambia",
     "customs clearing Zambia",

@@ -20,6 +20,10 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Our Team",    href: "/team" },
     { label: "Contact Us",  href: "/contact" },
   ],
+  Legal: [
+    { label: "Terms of Use", href: "/terms" },
+    { label: "Privacy Policy",     href: "/privacy" },
+  ],
   Affiliations: [
     { label: "ZRA",   href: "https://www.zra.org.zm/" },
     { label: "ZCFAA", href: "https://zcfaa.com/" },
@@ -33,7 +37,7 @@ export default function Footer() {
     <footer style={{ background: "oklch(0.94 0.005 262)" }}>
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 lg:py-8">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12">
 
           {/* Brand column */}
           <div className="lg:col-span-2">
@@ -111,6 +115,19 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs" style={{ color: TEXT }}>
             &copy; {new Date().getFullYear()} Hill + Delamain. All rights reserved.
+          </p>
+          <p className="text-xs text-center" style={{ color: TEXT }}>
+            All business is conducted in accordance with our{" "}
+            <a
+              href="/HDZ-Standard-Trading-Conditions.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors duration-200"
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "oklch(0.52 0.20 25)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = TEXT)}
+            >
+              Standard Trading Conditions
+            </a>
           </p>
           <p className="text-xs" style={{ color: TEXT }}>
             Reg. No. 119680004861 | TPIN: 1001630844
