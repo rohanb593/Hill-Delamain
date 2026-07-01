@@ -1,3 +1,6 @@
+"use client";
+import Link from "next/link";
+
 const pillars = [
   {
     number: "01",
@@ -5,6 +8,7 @@ const pillars = [
     title: "Over 60 Years of Leadership",
     body: "Established in Zambia in 1965, Hill + Delamain is one of the country's most enduring logistics providers. Six decades of proven performance built on accountability, transparency, and consistent delivery.",
     accent: "oklch(0.52 0.20 25)",
+    href: "/heritage",
   },
   {
     number: "02",
@@ -12,6 +16,7 @@ const pillars = [
     title: "150+ Trained Professionals",
     body: "A team of over 150 experienced staff across 14 Zambian offices, supported by clearly defined SOPs and continuous development aligned with evolving ZRA regulations.",
     accent: "oklch(0.37 0.23 265)",
+    href: "/team",
   },
   {
     number: "03",
@@ -19,12 +24,13 @@ const pillars = [
     title: "International Partnerships",
     body: "Strategic partnerships with leading global partners give our clients access to world-class networks backed by Zambian expertise.",
     accent: "oklch(0.52 0.20 25)",
+    href: "/global-reach",
   },
 ];
 
 const certifications = [
   { label: "ZCFAA Member", detail: "" },
-  { label: "ZRA ASYCUDA", detail: "53 Profiles" },
+  { label: "ZRA ASYCUDA", detail: "50+ Profiles" },
   { label: "TAZ Member", detail: "" },
   { label: "Transit Bond Guarantee", detail: "ZMW 250M" },
   { label: "Warehouse Bond Guarantee", detail: "ZMW 145 Million" },
@@ -94,18 +100,28 @@ export default function Capabilities() {
         {/* ── Pillars ── */}
         <div className="grid md:grid-cols-3 gap-5 mb-14">
           {pillars.map((p, i) => (
-            <div
+            <Link
               key={i}
-              className="reveal rounded-xl overflow-hidden"
+              href={p.href}
+              className="reveal rounded-xl overflow-hidden block group"
               style={{
                 background: "oklch(1 0 0 / 0.15)",
                 backdropFilter: "blur(2px)",
                 border: `1px solid oklch(0.90 0.01 262)`,
                 borderTop: `4px solid ${p.accent}`,
                 transitionDelay: `${i * 80}ms`,
+                transition: "transform 200ms ease, box-shadow 200ms ease",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px oklch(0 0 0 / 0.08)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.transform = "";
+                (e.currentTarget as HTMLElement).style.boxShadow = "";
               }}
             >
-              <div className="p-7 lg:p-8">
+              <div className="p-7 lg:p-8 flex flex-col h-full">
                 <span
                   className="font-display font-800 block mb-5 leading-none"
                   style={{
@@ -129,13 +145,22 @@ export default function Capabilities() {
                   {p.title}
                 </h3>
                 <p
-                  className="text-base leading-relaxed"
+                  className="text-base leading-relaxed mb-6 flex-1"
                   style={{ color: "oklch(0.50 0.008 262)" }}
                 >
                   {p.body}
                 </p>
+                <span
+                  className="inline-flex items-center gap-2 text-sm font-semibold"
+                  style={{ color: p.accent }}
+                >
+                  Learn more
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style={{ transition: "transform 200ms ease" }} className="group-hover:translate-x-1">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

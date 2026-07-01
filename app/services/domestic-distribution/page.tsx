@@ -24,7 +24,7 @@ export default function DomesticDistributionPage() {
       accent="oklch(0.37 0.23 265)"
       features={[
         { title: "Own Vehicle Fleet", body: "20 company-owned vehicles mean we control delivery quality and timelines — no reliance on subcontractors." },
-        { title: "Nationwide Coverage", body: "Lusaka, Copperbelt, Livingstone, Chipata, Solwezi — all major Zambian centres covered on regular schedules." },
+        { title: "Nationwide Coverage", body: "Lusaka, Copperbelt, Solwezi, Kalumbila — all major Zambian centres covered on regular schedules." },
         { title: "DRC Copperbelt Service", body: "Cross-border delivery into the DRC Copperbelt — ideal for mining operations and industrial clients on both sides of the border." },
         { title: "Tracked Shipments", body: "All domestic deliveries are tracked and managed by our operations team with real-time status available to clients." },
       ]}

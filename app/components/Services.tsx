@@ -32,7 +32,7 @@ const services = [
     icon: FileSearch,
     title: "Customs Broking",
     description:
-      "ZRA-compliant customs broking with 53 ASYCUDA profiles and managing ZMW 250M bond. Expert HS classification, duty rebates, and post-clearance audit support.",
+      "ZRA-compliant customs broking with over 50 ASYCUDA profiles and managing ZMW 250M bond. Expert HS classification, duty rebates, and post-clearance audit support.",
     accent: "oklch(0.37 0.23 265)",
     href: "/services/customs-broking",
   },
