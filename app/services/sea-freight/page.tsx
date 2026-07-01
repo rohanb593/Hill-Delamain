@@ -26,7 +26,7 @@ export default function SeaFreightPage() {
       features={[
         { title: "FCL — Full Container", body: "20ft and 40ft container loads managed end-to-end, from origin port to your door in Zambia." },
         { title: "LCL Groupage", body: "Share a container and pay only for the space you use. Ideal for shipments under a full container load." },
-        { title: "Port Corridors", body: "Dar es Salaam, Beira, and Durban — established relationships at all three major ports serving Zambia." },
+        { title: "Port Corridors", body: "Dar es Salaam, Beira, Durban, and Walvis Bay — established relationships at all four major ports serving Zambia." },
         { title: "Full Documentation", body: "Bills of lading, ZRA import declarations, port health certificates — complete documentation management." },
         { title: "Worldwide Cargo Handling", body: "The Shipping Division handles all manner of cargoes, world-wide — from general goods to specialist commodities, with the expertise to manage every stage of the journey." },
         { title: "Interior Destinations", body: "A particular specialisation is in the movement of goods by container, FCL and LCL, to interior destinations often not served by the shipping lines themselves." },

@@ -21,8 +21,8 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Contact Us",  href: "/contact" },
   ],
   Legal: [
-    { label: "Terms of Use", href: "/terms" },
-    { label: "Privacy Policy",     href: "/privacy" },
+    { label: "Terms of Use", href: "/terms-of-use" },
+    { label: "Privacy Policy",     href: "/privacy-policy" },
   ],
   Affiliations: [
     { label: "ZRA",   href: "https://www.zra.org.zm/" },
