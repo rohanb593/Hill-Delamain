@@ -19,16 +19,16 @@ export default function AirFreightPage() {
     <ServicePageLayout
       eyebrow="Air Freight"
       title={<>Air Freight &amp;<br /><span style={{ color: "oklch(0.52 0.20 25)" }}>Cargo, Zambia</span></>}
-      description="Hill + Delamain handles air consolidations and charter cargo through Lusaka Kenneth Kaunda International Airport (Lusaka International Airport - LUN) and Ndola Simon Mwansa Kapwepwe International Airport (Ndola International Airport - NLA). We manage the full cycle — origin pickup, export documentation, transit, customs clearance on arrival, and final delivery across Zambia."
+      description="Hill + Delamain handles air consolidations and charter cargo through Kenneth Kaunda International Airport (Lusaka International Airport - LUN) and Simon Mwansa Kapwepwe International Airport (Ndola International Airport - NLA). We manage the full cycle — origin pickup, export documentation, transit, customs clearance on arrival, and final delivery across Zambia."
       accent="oklch(0.52 0.20 25)"
       topCards={[
         {
-          title: "Lusaka — Kenneth Kaunda International Airport (LUN)",
+          title: "Kenneth Kaunda International Airport (LUN)",
           body: "Zambia's primary international gateway and our main hub for air freight operations. Handling the majority of imports and exports, LUN connects Zambia to global trade routes across Africa, Europe, Asia, and beyond.",
           accent: "oklch(0.37 0.23 265)",
         },
         {
-          title: "Ndola — Simon Mwansa Kapwepwe International Airport (NLA)",
+          title: "Simon Mwansa Kapwepwe International Airport (NLA)",
           body: "Serving the Copperbelt — Zambia's industrial and mining heartland. Our Ndola operations ensure fast clearance and onward delivery for freight serving the region's mining, manufacturing, and energy sectors.",
           accent: "oklch(0.52 0.20 25)",
         },
