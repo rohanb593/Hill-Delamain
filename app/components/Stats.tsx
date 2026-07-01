@@ -6,7 +6,7 @@ const stats = [
   { end: 1965, suffix: "",    label: "Established",         note: "Over 60 years of proven performance" },
   { end: 14,   suffix: "",    label: "Offices in Zambia",  note: "Across Lusaka, Copperbelt & borders" },
   { end: 150,  suffix: "+",   label: "Expert Staff",        note: "Experienced freight professionals" },
-  { end: 20,   suffix: "",    label: "Delivery Vehicles",   note: "Domestic distribution fleet" },
+  { end: 20,   suffix: "+",   label: "Delivery Vehicles",   note: "Domestic distribution fleet" },
   { end: 5956, suffix: "m²",  label: "Warehouse",           note: "Across Lusaka, Ndola, Kitwe & Chingola" },
 ];
 

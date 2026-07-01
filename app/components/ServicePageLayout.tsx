@@ -8,6 +8,12 @@ interface Feature {
   body: string;
 }
 
+interface TopCard {
+  title: string;
+  body: string;
+  accent: string;
+}
+
 interface ServicePageLayoutProps {
   eyebrow: string;
   title: ReactNode;
@@ -16,6 +22,7 @@ interface ServicePageLayoutProps {
   accent: string;
   ctaLabel: string;
   badge?: string;
+  topCards?: TopCard[];
 }
 
 export default function ServicePageLayout({
@@ -26,6 +33,7 @@ export default function ServicePageLayout({
   accent,
   ctaLabel,
   badge,
+  topCards,
 }: ServicePageLayoutProps) {
   return (
     <main
@@ -81,12 +89,40 @@ export default function ServicePageLayout({
           <div className="flex-1" style={{ background: "oklch(0.37 0.23 265)" }} />
         </div>
 
+        {/* Airport / top cards */}
+        {topCards && topCards.length > 0 && (
+          <div className="grid sm:grid-cols-2 gap-5 mb-5">
+            {topCards.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-xl p-7"
+                style={{ background: card.accent }}
+              >
+                <h2
+                  className="font-display font-700 text-lg mb-2 leading-tight"
+                  style={{ color: "white" }}
+                >
+                  {card.title}
+                </h2>
+                <p
+                  className="text-base leading-relaxed"
+                  style={{ color: "oklch(1 0 0 / 0.80)" }}
+                >
+                  {card.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Feature cards */}
         <div className="grid sm:grid-cols-2 gap-5 mb-5">
-          {features.map((item) => (
+          {features.map((item, i) => {
+            const isLastOdd = i === features.length - 1 && features.length % 2 !== 0;
+            return (
             <div
               key={item.title}
-              className="rounded-xl p-7"
+              className={`rounded-xl p-7${isLastOdd ? " sm:col-span-2 sm:max-w-[calc(50%-10px)] sm:mx-auto sm:w-full" : ""}`}
               style={{
                 background: "white",
                 border: "1px solid oklch(0.90 0.01 262)",
@@ -105,7 +141,8 @@ export default function ServicePageLayout({
                 {item.body}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {badge && (

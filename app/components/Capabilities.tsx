@@ -2,7 +2,7 @@ const pillars = [
   {
     number: "01",
     eyebrow: "Heritage",
-    title: "60 Years of Leadership",
+    title: "Over 60 Years of Leadership",
     body: "Established in Zambia in 1965, Hill + Delamain is one of the country's most enduring logistics providers. Six decades of proven performance built on accountability, transparency, and consistent delivery.",
     accent: "oklch(0.52 0.20 25)",
   },
@@ -80,8 +80,7 @@ export default function Capabilities() {
             className="text-base lg:text-lg leading-relaxed"
             style={{ color: "oklch(0.50 0.008 262)", maxWidth: "42ch" }}
           >
-            We are the only freight forwarder in Zambia offering the full
-            spectrum — air, sea, road, customs broking, insurance, and
+            We offer the full spectrum — air, sea, road, customs broking, and
             bonded warehousing — under one roof.
           </p>
         </div>
@@ -196,7 +195,7 @@ export default function Capabilities() {
               className="text-base lg:text-lg leading-relaxed font-bold text-center"
               style={{ color: "white" }}
             >
-              60 years of consistent, accountable service to Zambia&apos;s most
+              Over 60 years of consistent, accountable service to Zambia&apos;s most
               demanding industries — mining, manufacturing, and
               international trade.
             </p>
